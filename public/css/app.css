@@ -170,6 +170,7 @@ footer {
 
 .container {
     width: 60%;
+    margin: 0 auto;
 }
 
 .header-content-top {
@@ -301,4 +302,80 @@ footer {
 
 .nav-link {
     margin-right: 55px;
+}
+
+.section {
+    margin-top: 70px;
+}
+
+.section-title {
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: 0.699999988079071px;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.section-title h1 {
+    font-family: Bitter, sans-serif;
+}
+
+.goods {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.good {
+    width: 350px;
+    margin-bottom: 25px;
+}
+
+.good-image {
+    margin-bottom: 15px;
+}
+
+.good-price {
+    font-family: Open Sans, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.good-name {
+    font-family: Open Sans, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.btn {
+    border: 0;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn-cart {
+    height: 50px;
+    background: #C4C4C4;
+    color: #ffffff;
+    font-family: Open Sans, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: center;
+    width: 100%;
 }
