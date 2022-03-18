@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\IndexController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('index');
+Route::get('/', [IndexController::class, 'index'])->name('index');
+Route::get('/catalog', [IndexController::class, 'catalog'])->name('catalog');
+
+Route::get('/reviews', [IndexController::class, 'reviews'])->name('reviews');
+
+Route::get('/product', [IndexController::class, 'product'])->name('product');
 
 Auth::routes();
 

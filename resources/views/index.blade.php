@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') No-House @endsection
+@section('title') no-house @endsection
 
 @section('header')
     @parent
@@ -23,9 +23,11 @@
                             <img src="{{ asset('img/item-pic.png') }}" alt="good picture">
                         </div>
                         <div class="good-price">15,78 BYN</div>
-                        <div class="good-name">Краска Fawori Plastic Mix-1 матовая 5 л</div>
+                        <div class="good-name">
+                            <a href="{{ route('product') }}">Краска Fawori Plastic Mix-1 матовая 5 л</a>
+                        </div>
                         <a href="#">
-                            <input type="button" value="В корзину" class="btn btn-cart">
+                            <input type="button" value="В корзину" class="btn btn-primary">
                         </a>
                     </div>
                     <div class="good">
@@ -33,9 +35,11 @@
                             <img src="{{ asset('img/item-pic.png') }}" alt="good picture">
                         </div>
                         <div class="good-price">15,78 BYN</div>
-                        <div class="good-name">Краска Fawori Plastic Mix-1 матовая 5 л</div>
+                        <div class="good-name">
+                            <a href="{{ route('product') }}">Краска Fawori Plastic Mix-1 матовая 5 л</a>
+                        </div>
                         <a href="#">
-                            <input type="button" value="В корзину" class="btn btn-cart">
+                            <input type="button" value="В корзину" class="btn btn-primary">
                         </a>
                     </div>
                     <div class="good">
@@ -43,9 +47,11 @@
                             <img src="{{ asset('img/item-pic.png') }}" alt="good picture">
                         </div>
                         <div class="good-price">15,78 BYN</div>
-                        <div class="good-name">Краска Fawori Plastic Mix-1 матовая 5 л</div>
+                        <div class="good-name">
+                            <a href="{{ route('product') }}">Краска Fawori Plastic Mix-1 матовая 5 л</a>
+                        </div>
                         <a href="#">
-                            <input type="button" value="В корзину" class="btn btn-cart">
+                            <input type="button" value="В корзину" class="btn btn-primary">
                         </a>
                     </div>
                     <div class="good">
@@ -53,9 +59,10 @@
                             <img src="{{ asset('img/item-pic.png') }}" alt="good picture">
                         </div>
                         <div class="good-price">15,78 BYN</div>
-                        <div class="good-name">Краска Fawori Plastic Mix-1 матовая 5 л</div>
-                        <a href="#">
-                            <input type="button" value="В корзину" class="btn btn-cart">
+                        <div class="good-name">
+                            <a href="{{ route('product') }}">Краска Fawori Plastic Mix-1 матовая 5 л</a>
+                        </div>                        <a href="#">
+                            <input type="button" value="В корзину" class="btn btn-primary">
                         </a>
                     </div>
                 </div>

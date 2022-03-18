@@ -28,7 +28,7 @@
                         <div class="header-search">
                             <form action="#" id="searchForm">
                                 <label for="search">
-                                    <input type="text" name="search" id="search" class="form-control">
+                                    <input type="text" name="search" id="search" placeholder="Поиск товаров для дома">
                                 </label>
                                 <button type="submit" class="btn btn-search">Поиск</button>
                             </form>
@@ -44,16 +44,15 @@
                     <div class="container header-bottom-container">
                         <div class="navigation">
                             <div class="nav-group">
-                                <a href="#" class="nav-group-link">
+                                <a href="{{ route('catalog') }}" class="nav-group-link">
                                     <img src="{{asset('img/menu.png')}}" alt="menu">
                                 </a>
-                                <a href="#" class="nav-group-link">
+                                <a href="{{ route('catalog') }}" class="nav-group-link" style="margin-left: 13px">
                                     Каталог
                                 </a>
                             </div>
                             <a href="#" class="nav-link">Доставка и оплата</a>
-                            <a href="#" class="nav-link">Отзывы</a>
-                            <a href="#" class="nav-link">О нас</a>
+                            <a href="{{ route('reviews') }}" class="nav-link">Отзывы</a>
                         </div>
                         <div class="cart">
                             <a href="#" class="cart-link">Корзина</a>

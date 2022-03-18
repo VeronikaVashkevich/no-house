@@ -110,6 +110,7 @@ body, html {
 header {
     width: 100%;
     height: 275px;
+    background: #1F6FB9;
 }
 
 a {
@@ -124,11 +125,12 @@ a:hover {
 footer {
     height: 170px;
     width: 100%;
-    background: #C4C4C4;
+    background: #1F6FB9;
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 0 0 auto;
+    color: #ffffff;
 }
 
 .footer-container {
@@ -153,7 +155,6 @@ footer {
     line-height: 28px;
     letter-spacing: 0em;
     text-align: left;
-
 }
 
 .wrapper {
@@ -175,7 +176,7 @@ footer {
 
 .header-content-top {
     height: 170px;
-    background: #C4C4C4;
+    background: #1F6FB9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -188,7 +189,7 @@ footer {
 
 .header-content-bottom {
     height: 105px;
-    background: #B9B4B4;
+    background: #1F6FB9;
     display: flex;
     justify-content: center;
 }
@@ -204,7 +205,7 @@ footer {
     font-weight: 700;
     line-height: 48px;
     letter-spacing: 0em;
-    color: #000000;
+    color: #ffffff;
 }
 
 .header-search {
@@ -238,20 +239,64 @@ footer {
     letter-spacing: 0em;
     text-align: left;
     padding: 11px 52px;
-    background: #79919B;
+    background: #65B5FF;
     color: #ffffff;
     border: none;
     margin-left: 15px;
 }
 
 .btn-search:hover {
-    background: #586971;
+    background: #418fd7;
     transition: 0.3s;
     cursor: pointer;
 }
 
+.auth-form {
+    width: 445px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
 .form-control {
-    border: none;
+    width: 100%;
+    height: 50px;
+    border: 2px solid #BAC1C8;
+    box-sizing: border-box;
+    padding-left: 11px;
+    font-family: Open Sans, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.form-label {
+    font-family: Open Sans, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.btn-link {
+    font-family: Open Sans, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-top: 22px;
+    color: #1F6FB9;
 }
 
 #searchForm {
@@ -263,11 +308,12 @@ footer {
 #search {
     background: #ffffff;
     font-family: Raleway, sans-serif;
-    font-size: 22px;
+    font-size: 16px;
     height: 50px;
     width: 380px;
-    padding: 0;
     margin: 0;
+    border: none;
+    padding-left: 11px;
 }
 
 .header-bottom-container {
@@ -318,8 +364,12 @@ footer {
     margin-bottom: 40px;
 }
 
-.section-title h1 {
+.section-title h1, h3 {
     font-family: Bitter, sans-serif;
+}
+
+.section-title-center {
+    text-align: center;
 }
 
 .goods {
@@ -348,7 +398,7 @@ footer {
     text-align: left;
 }
 
-.good-name {
+.good-name a{
     font-family: Open Sans, sans-serif;
     font-size: 22px;
     font-style: normal;
@@ -356,6 +406,7 @@ footer {
     line-height: 30px;
     letter-spacing: 0em;
     text-align: left;
+    color: #000000;
 }
 
 .btn {
@@ -366,9 +417,9 @@ footer {
     cursor: pointer;
 }
 
-.btn-cart {
+.btn-primary {
     height: 50px;
-    background: #C4C4C4;
+    background: #65B5FF;
     color: #ffffff;
     font-family: Open Sans, sans-serif;
     font-size: 18px;
@@ -378,4 +429,132 @@ footer {
     letter-spacing: 0em;
     text-align: center;
     width: 100%;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.menu-list {
+    width: 350px;
+    margin-right: 30px;
+    margin-bottom: 57px;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item {
+    margin-bottom: 25px;
+}
+
+.menu-link {
+    color: #000000;
+    font-family: Open Sans, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.menu-link h4 {
+    font-family: Open Sans, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.menu-list-title {
+    margin-bottom: 30px;
+}
+
+.review {
+    margin-bottom: 50px;
+}
+
+.review-title {
+    font-family: Bitter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0.699999988079071px;
+    text-align: left;
+}
+
+.review-text {
+    font-family: Open Sans, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.add-review {
+    text-align: right;
+}
+
+.add-review a {
+    font-family: Open Sans, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #65B5FF;
+}
+
+.product-header {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 50px;
+}
+
+.product-image {
+    width: 445px;
+    margin-right: 30px;
+}
+
+.product-header-sub {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 445px;
+}
+
+.btn-cart {
+    height: 65px;
+    font-family: Open Sans, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 65px;
+    vertical-align: middle;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.product-price {
+    font-family: Bitter, sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0.699999988079071px;
+    text-align: left;
+    margin-bottom: 25px;
 }

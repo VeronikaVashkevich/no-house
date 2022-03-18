@@ -10,4 +10,20 @@ class IndexController extends Controller
     {
         return view('index');
     }
+
+    public function catalog() {
+        return view('catalog');
+    }
+
+    //temporary methods
+
+    public function reviews()
+    {
+        return view('reviews');
+    }
+
+    public function product()
+    {
+        return view('product');
+    }
 }
