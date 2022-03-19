@@ -524,6 +524,10 @@ footer {
     margin-bottom: 50px;
 }
 
+.product-body {
+    margin-bottom: 90px;
+}
+
 .product-image {
     width: 445px;
     margin-right: 30px;
@@ -557,4 +561,51 @@ footer {
     letter-spacing: 0.699999988079071px;
     text-align: left;
     margin-bottom: 25px;
+}
+
+.product-description {
+    font-family: Open Sans, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 36px;
+}
+
+.product-parameters h5{
+    font-family: Open Sans, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.parameters {
+    border: 0;
+    width: 100%;
+}
+
+.p-title {
+    font-family: Open Sans, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.p-text {
+    font-family: Open Sans, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 0em;
+    text-align: left;
 }
