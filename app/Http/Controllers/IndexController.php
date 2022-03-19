@@ -31,4 +31,8 @@ class IndexController extends Controller
     {
         return view('cart');
     }
+
+    public function products() {
+        return view('products');
+    }
 }

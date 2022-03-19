@@ -21,6 +21,7 @@ Route::get('/catalog', [IndexController::class, 'catalog'])->name('catalog');
 Route::get('/reviews', [IndexController::class, 'reviews'])->name('reviews');
 
 Route::get('/product', [IndexController::class, 'product'])->name('product');
+Route::get('/products', [IndexController::class, 'products'])->name('products');
 
 Route::get('/cart', [IndexController::class, 'cart'])->name('cart');
 

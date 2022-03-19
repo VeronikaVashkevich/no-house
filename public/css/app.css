@@ -718,3 +718,16 @@ footer {
     letter-spacing: 0em;
     text-align: left;
 }
+
+.goods-group {
+    margin-top: 70px;
+}
+
+.goods-title {
+    font-family: 'Bitter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 30px;
+}
