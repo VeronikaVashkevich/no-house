@@ -415,6 +415,8 @@ footer {
 
 .btn:hover {
     cursor: pointer;
+    filter: brightness(0.8);
+    transition: 0.3s;
 }
 
 .btn-primary {
@@ -606,6 +608,113 @@ footer {
     font-style: normal;
     font-weight: 400;
     line-height: 50px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 100%;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.cart-item-name h6 {
+    font-family: Open Sans, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.btn-qty {
+    height: 40px;
+    width: 50px;
+    background: #65B5FF;
+    color: #ffffff;
+    border: 0;
+}
+
+.btn-qty:hover {
+    background: #508fca;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.qty {
+    padding: 5px 28px;
+    color: #000000;
+    background: rgba(206, 214, 222, 0.2);
+}
+
+.cart-item-price {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;
+}
+
+.delivery {
+    width: 100%;
+    margin-bottom: 90px;
+}
+
+.delivery-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.delivery-title h5{
+    font-family: 'Bitter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+}
+
+.delivery-fields form {
+    width: 445px;
+    display: block;
+}
+
+.delivery-pay {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+}
+
+.total-cost {
+    font-family: Open Sans, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.cost {
+    font-family: Open Sans, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
     letter-spacing: 0em;
     text-align: left;
 }

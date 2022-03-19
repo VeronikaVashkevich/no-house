@@ -55,7 +55,7 @@
                             <a href="{{ route('reviews') }}" class="nav-link">Отзывы</a>
                         </div>
                         <div class="cart">
-                            <a href="#" class="cart-link">Корзина</a>
+                            <a href="{{ route('cart') }}" class="cart-link">Корзина</a>
                         </div>
                     </div>
                 </div>
