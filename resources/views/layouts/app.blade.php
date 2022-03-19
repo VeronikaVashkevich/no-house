@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}" type="image/x-icon">
 
     <title>@yield('title')</title>
 
@@ -34,9 +35,13 @@
                             </form>
                         </div>
                         <div class="authentication">
-                            <a href="{{ route('login') }}">Вход</a>
-                            &nbsp/&nbsp
-                            <a href="{{ route('register') }}">Регистрация</a>
+                            @auth
+                                <a href="{{ route('logout') }}">Выйти</a>
+                            @else
+                                <a href="{{ route('login') }}">Вход</a>
+                                &nbsp/&nbsp
+                                <a href="{{ route('register') }}">Регистрация</a>
+                            @endauth
                         </div>
                     </div>
                 </div>

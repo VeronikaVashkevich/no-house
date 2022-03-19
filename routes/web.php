@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,5 +27,11 @@ Route::get('/products', [IndexController::class, 'products'])->name('products');
 Route::get('/cart', [IndexController::class, 'cart'])->name('cart');
 
 Auth::routes();
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// dashboard roles
+Route::group(['middleware' => ['role:admin']], function () {
+
+});
