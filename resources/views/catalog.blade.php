@@ -23,7 +23,7 @@
                         </div>
                         <ul class="menu-items">
                             <li class="menu-item">
-                                <a href="#" class="menu-link">Обои</a>
+                                <a href="{{ route('wallpapers.index') }}" class="menu-link">Обои</a>
                             </li>
                             <li class="menu-item">
                                 <a href="#" class="menu-link">Панели ПВХ</a>

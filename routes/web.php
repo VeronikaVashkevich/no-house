@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\WallpaperController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -31,7 +33,11 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// dashboard roles
+// dashboard routes
 Route::group(['middleware' => ['role:admin']], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+    //wallpapers
+    Route::get('/dashboard/wallpapers', [WallpaperController::class, 'dashboard'])->name('wallpapersDashboard');
+    Route::resource('wallpapers', WallpaperController::class);
 });
