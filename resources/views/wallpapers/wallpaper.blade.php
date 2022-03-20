@@ -64,7 +64,23 @@
                                 </tr>
                                 <tr>
                                     <td class="p-title">3D</td>
-                                    <td class="p-text">{{ $wallpaper->is_3d }}</td>
+                                    <td class="p-text">
+                                        @if ($wallpaper->is_3d == 1)
+                                            Да
+                                        @else
+                                            Нет
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-title">Влажные</td>
+                                    <td class="p-text">
+                                        @if ($wallpaper->is_wet == 1)
+                                            Да
+                                        @else
+                                            Нет
+                                        @endif
+                                    </td>
                                 </tr>
                             </table>
                         </div>

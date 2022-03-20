@@ -118,6 +118,18 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="is_wet" class="form-label">
+                            <input type="checkbox" name="is_wet" id="is_wet"
+                                   @if($wallpaper->is_wet == 1) checked @endif> Влажные
+                            @error('is_wet')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </label>
+                    </div>
+
+                    <div class="form-group">
                         <label for="image" class="form-label">
 
                             <input id="image" type="file" class="form-control @error('basis') is-invalid @enderror"

@@ -35,6 +35,9 @@
                             </form>
                         </div>
                         <div class="authentication">
+                            @role('admin')
+                            <a href="{{ route('dashboard') }}">Панель управления</a>&nbsp
+                            @endrole
                             @auth
                                 <a href="{{ route('logout') }}">Выйти</a>
                             @else

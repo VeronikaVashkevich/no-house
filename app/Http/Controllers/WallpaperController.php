@@ -56,6 +56,7 @@ class WallpaperController extends Controller
         $wallpaper->price = $request->price;
         $wallpaper->description = $request->description;
         $wallpaper->is_3d = !empty($request->is_3d) ? 1 : 0;
+        $wallpaper->is_wet = !empty($request->is_wet) ? 1 : 0;
 
         $uploadFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), [
             'folder' => 'products',
@@ -110,6 +111,7 @@ class WallpaperController extends Controller
         $wallpaper->price = $request->price;
         $wallpaper->description = $request->description;
         $wallpaper->is_3d = !empty($request->is_3d) ? 1 : 0;
+        $wallpaper->is_wet = !empty($request->is_wet) ? 1 : 0;
 
         if ($request->file('image')) {
             $uploadFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), [
