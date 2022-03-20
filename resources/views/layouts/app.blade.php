@@ -36,9 +36,12 @@
                         </div>
                         <div class="authentication">
                             @role('admin')
-                            <a href="{{ route('dashboard') }}">Панель управления</a>&nbsp
+                            <a href="{{ route('dashboard') }}">Панель управления</a>
+                            &nbsp/&nbsp
                             @endrole
                             @auth
+                                <a href="{{ route('home') }}">Личный кабинет</a>
+                                &nbsp/&nbsp
                                 <a href="{{ route('logout') }}">Выйти</a>
                             @else
                                 <a href="{{ route('login') }}">Вход</a>
