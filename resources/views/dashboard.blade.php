@@ -19,7 +19,9 @@
                         <li class="panel-el">
                             <a href="{{ route('wallpapersDashboard') }}">Обои</a>
                         </li>
-                        <li class="panel-el">Панели ПВХ</li>
+                        <li class="panel-el">
+                            <a href="{{ route('pvsPanelsDashboard') }}">Панели ПВХ</a>
+                        </li>
                         <li class="panel-el">Жидкие обои</li>
                         <li class="panel-el">Двери</li>
                         <li class="panel-el">Плитка</li>

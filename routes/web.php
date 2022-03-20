@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\PvcPanelController;
 use App\Http\Controllers\WallpaperController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -40,4 +41,8 @@ Route::group(['middleware' => ['role:admin']], function () {
     //wallpapers
     Route::get('/dashboard/wallpapers', [WallpaperController::class, 'dashboard'])->name('wallpapersDashboard');
     Route::resource('wallpapers', WallpaperController::class);
+
+    //pvc panels
+    Route::resource('pvcPanels', PvcPanelController::class);
+    Route::get('/dashboard/pvc-panels', [PvcPanelController::class, 'dashboard'])->name('pvsPanelsDashboard');
 });
