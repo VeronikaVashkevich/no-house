@@ -31,8 +31,15 @@ Route::get('/cart', [IndexController::class, 'cart'])->name('cart');
 
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//wallpapers
+Route::get('/wallpapers', [WallpaperController::class, 'index'])->name('wallpapers.index');
+Route::get('/wallpapers/{wallpaper}', [WallpaperController::class, 'show'])->name('wallpapers.show');
+
+//pvc panels
+Route::get('/pvc-panels', [PvcPanelController::class, 'index'])->name('pvcPanels.index');
+Route::get('/pvc-panels/{pvcPanel}', [PvcPanelController::class, 'show'])->name('pvcPanels.show');
 
 // dashboard routes
 Route::group(['middleware' => ['role:admin']], function () {
@@ -40,9 +47,13 @@ Route::group(['middleware' => ['role:admin']], function () {
 
     //wallpapers
     Route::get('/dashboard/wallpapers', [WallpaperController::class, 'dashboard'])->name('wallpapersDashboard');
-    Route::resource('wallpapers', WallpaperController::class);
+    Route::resource('wallpapers', WallpaperController::class)->except([
+        'index', 'show'
+    ]);
 
     //pvc panels
-    Route::resource('pvcPanels', PvcPanelController::class);
     Route::get('/dashboard/pvc-panels', [PvcPanelController::class, 'dashboard'])->name('pvsPanelsDashboard');
+    Route::resource('pvcPanels', PvcPanelController::class)->except([
+        'index', 'show'
+    ]);
 });

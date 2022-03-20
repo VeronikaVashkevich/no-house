@@ -26,7 +26,7 @@
                                 <a href="{{ route('wallpapers.index') }}" class="menu-link">Обои</a>
                             </li>
                             <li class="menu-item">
-                                <a href="#" class="menu-link">Панели ПВХ</a>
+                                <a href="{{ route('pvcPanels.index') }}" class="menu-link">Панели ПВХ</a>
                             </li>
                             <li class="menu-item">
                                 <a href="#" class="menu-link">Жидкие обои</a>

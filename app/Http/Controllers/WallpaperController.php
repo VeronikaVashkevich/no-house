@@ -102,8 +102,6 @@ class WallpaperController extends Controller
      */
     public function update(Request $request, Wallpaper $wallpaper)
     {
-        $oldImage = $wallpaper->image;
-
         $wallpaper->name = $request->name;
         $wallpaper->type = $request->type;
         $wallpaper->texture = $request->texture;
@@ -118,8 +116,6 @@ class WallpaperController extends Controller
                 'folder' => 'products',
             ])->getSecurePath();
             $wallpaper->image = $uploadFileUrl;
-        } else {
-            $wallpaper->image = $oldImage;
         }
 
         $wallpaper->save();

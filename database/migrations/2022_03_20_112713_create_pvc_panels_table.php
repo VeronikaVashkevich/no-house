@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 400);
             $table->string('description', 2500);
+            $table->string('image', 400);
             $table->string('type', 100);
             $table->string('texture', 100);
             $table->string('color', 100);
