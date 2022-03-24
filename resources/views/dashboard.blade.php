@@ -22,8 +22,9 @@
                         <li class="panel-el">
                             <a href="{{ route('pvsPanelsDashboard') }}">Панели ПВХ</a>
                         </li>
-                        <li class="panel-el">Жидкие обои</li>
-                        <li class="panel-el">Двери</li>
+                        <li class="panel-el">
+                            <a href="{{ route('doorsDashboard') }}">Двери</a>
+                        </li>
                         <li class="panel-el">Плитка</li>
                         <li class="panel-el">Мойки для кухни</li>
                         <li class="panel-el">Ванны</li>

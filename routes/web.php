@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DoorController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\PvcPanelController;
 use App\Http\Controllers\WallpaperController;
@@ -41,6 +42,10 @@ Route::get('/wallpapers/{wallpaper}', [WallpaperController::class, 'show'])->nam
 Route::get('/pvc-panels', [PvcPanelController::class, 'index'])->name('pvcPanels.index');
 Route::get('/pvc-panels/{pvcPanel}', [PvcPanelController::class, 'show'])->name('pvcPanels.show');
 
+//doors routes
+Route::get('/doors', [DoorController::class, 'index'])->name('doors.index');
+Route::get('/doors/{door}', [DoorController::class, 'show'])->name('doors.show');
+
 // dashboard routes
 Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -54,6 +59,12 @@ Route::group(['middleware' => ['role:admin']], function () {
     //pvc panels
     Route::get('/dashboard/pvc-panels', [PvcPanelController::class, 'dashboard'])->name('pvsPanelsDashboard');
     Route::resource('pvcPanels', PvcPanelController::class)->except([
+        'index', 'show'
+    ]);
+
+    //door routes
+    Route::get('/dashboard/doors', [DoorController::class, 'dashboard'])->name('doorsDashboard');
+    Route::resource('doors', DoorController::class)->except([
         'index', 'show'
     ]);
 });

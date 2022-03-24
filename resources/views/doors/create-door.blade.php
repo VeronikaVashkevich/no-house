@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Добавить обои @endsection
+@section('title') Добавить двери @endsection
 
 @section('header')
     @parent
@@ -10,10 +10,10 @@
     <div class="container">
         <section id="recommendations" class="section">
             <div class="section-title">
-                <h1>Добавить обои</h1>
+                <h1>Добавить двери</h1>
             </div>
             <div class="section-content">
-                <form method="POST" action="{{ route('wallpapers.store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('doors.store') }}" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
@@ -46,13 +46,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="texture" class="form-label">
+                        <label for="construction" class="form-label">
 
-                            <input id="texture" type="text" class="form-control @error('texture') is-invalid @enderror"
-                                   name="texture" placeholder="Текстура"
-                                   required autofocus>
+                            <input id="construction" type="text" class="form-control @error('construction') is-invalid @enderror"
+                                   name="construction" placeholder="Конструкция"
+                                   required>
 
-                            @error('texture')
+                            @error('construction')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -76,9 +76,24 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="doorTrim" class="form-label">
+
+                            <input id="doorTrim" type="text" class="form-control @error('doorTrim') is-invalid @enderror"
+                                   name="doorTrim" placeholder="Отделка"
+                                   required>
+
+                            @error('doorTrim')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </label>
+                    </div>
+
+                    <div class="form-group">
                         <label for="price" class="form-label">
 
-                            <input id="price" type="number" class="form-control @error('price') is-invalid @enderror"
+                            <input id="price" type="number" class="form-control @error('is_3d') is-invalid @enderror"
                                    name="price" placeholder="Цена"
                                    required min="0.01" step="0.01">
 
@@ -91,13 +106,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="basis" class="form-label">
+                        <label for="height" class="form-label">
 
-                            <input id="basis" type="text" class="form-control @error('basis') is-invalid @enderror"
-                                   name="basis" placeholder="Основа"
-                                   required autofocus>
+                            <input id="height" type="number" class="form-control @error('height') is-invalid @enderror"
+                                   name="height" placeholder="Высота, мм" min="1"
+                                   required>
 
-                            @error('basis')
+                            @error('height')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -106,10 +121,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="is_3d" class="form-label">
-                            <input type="checkbox" name="is_3d" id="is_3d"> 3D
+                        <label for="width" class="form-label">
 
-                            @error('is_3d')
+                            <input id="width" type="number" class="form-control @error('width') is-invalid @enderror"
+                                   name="width" placeholder="Ширина, мм" min="1"
+                                   required>
+
+                            @error('width')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -118,10 +136,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="is_wet" class="form-label">
-                            <input type="checkbox" name="is_wet" id="is_wet"
-                                   @if($wallpaper->is_wet == 1) checked @endif> Влажные
-                            @error('is_wet')
+                        <label for="glass" class="form-label">
+                            <input type="checkbox" name="glass" id="glass"> Стекло
+
+                            @error('glass')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

@@ -36,7 +36,7 @@
 
                     <div class="menu-list">
                         <div class="menu-list-title">
-                            <a href="#" class="menu-link">
+                            <a href="{{ route('doors.index') }}" class="menu-link">
                                 <h4>Двери</h4>
                             </a>
                         </div>
