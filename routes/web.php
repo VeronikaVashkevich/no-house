@@ -64,7 +64,15 @@ Route::group(['middleware' => ['role:admin']], function () {
 
     //door routes
     Route::get('/dashboard/doors', [DoorController::class, 'dashboard'])->name('doorsDashboard');
-    Route::resource('doors', DoorController::class)->except([
-        'index', 'show'
-    ]);
+//    Route::resource('doors', DoorController::class)->except([
+//        'index', 'show'
+//    ]);
+
+    //troubles with resource controller
+    Route::get('/create/door', [DoorController::class, 'create'])->name('doors.create');
+    Route::post('/store/door', [DoorController::class, 'store'])->name('doors.store');
+    Route::get('/edit/door/{door}', [DoorController::class, 'edit'])->name('doors.edit');
+    Route::put('/update/door/{door}', [DoorController::class, 'update'])->name('doors.update');
+    Route::delete('/destroy/door/{door}', [DoorController::class, 'destroy'])->name('doors.destroy');
+
 });

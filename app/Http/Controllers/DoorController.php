@@ -66,11 +66,13 @@ class DoorController extends Controller
      * Display the specified resource.
      *
      * @param \App\Models\Door $door
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Door $door)
     {
-        //
+        return view('doors.door', [
+            'door' => $door,
+        ]);
     }
 
     /**
@@ -122,10 +124,11 @@ class DoorController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Models\Door $door
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy(Door $door)
     {
-        //
+        $door->delete();
+        return redirect('/dashboard/doors');
     }
 }

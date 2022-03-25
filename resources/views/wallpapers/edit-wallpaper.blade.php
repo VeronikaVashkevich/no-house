@@ -15,7 +15,7 @@
         <div class="section-content">
             <form method="POST" action="{{ route('wallpapers.update', $wallpaper) }}" enctype="multipart/form-data">
                 @csrf
-                @method('put')
+                @method('post')
                 <div class="form-group">
                     <label for="name" class="form-label">
 
