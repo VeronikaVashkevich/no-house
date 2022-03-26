@@ -5,20 +5,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DoorController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\PvcPanelController;
+use App\Http\Controllers\TilesController;
 use App\Http\Controllers\WallpaperController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/catalog', [IndexController::class, 'catalog'])->name('catalog');
@@ -45,6 +35,10 @@ Route::get('/pvc-panels/{pvcPanel}', [PvcPanelController::class, 'show'])->name(
 //doors routes
 Route::get('/doors', [DoorController::class, 'index'])->name('doors.index');
 Route::get('/doors/{door}', [DoorController::class, 'show'])->name('doors.show');
+
+//tiles routes
+Route::get('/tiles', [TilesController::class, 'index'])->name('tiles.index');
+Route::get('/tiles/{tile}', [TilesController::class, 'show'])->name('tiles.show');
 
 // dashboard routes
 Route::group(['middleware' => ['role:admin']], function () {
@@ -74,5 +68,13 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/edit/door/{door}', [DoorController::class, 'edit'])->name('doors.edit');
     Route::put('/update/door/{door}', [DoorController::class, 'update'])->name('doors.update');
     Route::delete('/destroy/door/{door}', [DoorController::class, 'destroy'])->name('doors.destroy');
+
+    //tiles routes
+    Route::get('/dashboard/tiles', [TilesController::class, 'dashboard'])->name('tilesDashboard');
+    Route::get('/create/tile', [TilesController::class, 'create'])->name('tiles.create');
+    Route::post('/store/tile', [TilesController::class, 'store'])->name('tiles.store');
+    Route::get('/edit/tile/{tile}', [TilesController::class, 'edit'])->name('tiles.edit');
+    Route::put('/update/tile/{tile}', [TilesController::class, 'update'])->name('tiles.update');
+    Route::delete('/destroy/tile/{tile}', [TilesController::class, 'destroy'])->name('tiles.destroy');
 
 });

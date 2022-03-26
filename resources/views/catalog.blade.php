@@ -55,7 +55,7 @@
 
                     <div class="menu-list">
                         <div class="menu-list-title">
-                            <a href="#" class="menu-link">
+                            <a href="{{ route('tiles.index') }}" class="menu-link">
                                 <h4>Плитка</h4>
                             </a>
                         </div>

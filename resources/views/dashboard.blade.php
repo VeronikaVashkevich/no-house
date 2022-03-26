@@ -25,7 +25,9 @@
                         <li class="panel-el">
                             <a href="{{ route('doorsDashboard') }}">Двери</a>
                         </li>
-                        <li class="panel-el">Плитка</li>
+                        <li class="panel-el">
+                            <a href="{{ route('tilesDashboard') }}">Плитка</a>
+                        </li>
                         <li class="panel-el">Мойки для кухни</li>
                         <li class="panel-el">Ванны</li>
                         <li class="panel-el">Смесители</li>
