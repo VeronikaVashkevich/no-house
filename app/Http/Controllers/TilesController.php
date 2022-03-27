@@ -70,12 +70,14 @@ class TilesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tiles  $tiles
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\Tiles  $tile
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function show(Tiles $tiles)
+    public function show(Tiles $tile)
     {
-        //
+        return view('tiles.tile', [
+            'tile' => $tile,
+        ]);
     }
 
     /**
