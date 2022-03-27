@@ -80,7 +80,7 @@
                         </div>
                         <ul class="menu-items">
                             <li class="menu-item">
-                                <a href="#" class="menu-link">Мойки для кухни</a>
+                                <a href="{{ route('sinks.index') }}" class="menu-link">Мойки для кухни</a>
                             </li>
                             <li class="menu-item">
                                 <a href="#" class="menu-link">Ванные</a>

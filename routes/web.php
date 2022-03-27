@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DoorController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\PvcPanelController;
+use App\Http\Controllers\SinkController;
 use App\Http\Controllers\TilesController;
 use App\Http\Controllers\WallpaperController;
 use Illuminate\Support\Facades\Auth;
@@ -39,6 +40,10 @@ Route::get('/doors/{door}', [DoorController::class, 'show'])->name('doors.show')
 //tiles routes
 Route::get('/tiles', [TilesController::class, 'index'])->name('tiles.index');
 Route::get('/tiles/{tile}', [TilesController::class, 'show'])->name('tiles.show');
+
+//kitchen sinks routes
+Route::get('/sinks', [SinkController::class, 'index'])->name('sinks.index');
+Route::get('/sinks/{sink}', [SinkController::class, 'show'])->name('sinks.show');
 
 // dashboard routes
 Route::group(['middleware' => ['role:admin']], function () {
@@ -76,5 +81,13 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/edit/tile/{tile}', [TilesController::class, 'edit'])->name('tiles.edit');
     Route::put('/update/tile/{tile}', [TilesController::class, 'update'])->name('tiles.update');
     Route::delete('/destroy/tile/{tile}', [TilesController::class, 'destroy'])->name('tiles.destroy');
+
+    //sinks routes
+    Route::get('/dashboard/sinks', [SinkController::class, 'dashboard'])->name('sinksDashboard');
+    Route::get('/create/sink', [SinkController::class, 'create'])->name('sinks.create');
+    Route::post('/store/sink', [SinkController::class, 'store'])->name('sinks.store');
+    Route::get('/edit/sink/{sink}', [SinkController::class, 'edit'])->name('sinks.edit');
+    Route::put('/update/sink/{sink}', [SinkController::class, 'update'])->name('sinks.update');
+    Route::delete('/destroy/sink/{sink}', [SinkController::class, 'destroy'])->name('sinks.destroy');
 
 });

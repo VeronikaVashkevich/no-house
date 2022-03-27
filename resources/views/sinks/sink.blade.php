@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') {{ $tile->name }} no-house @endsection
+@section('title') {{ $sink->name }} no-house @endsection
 
 @section('header')
     @parent
@@ -14,24 +14,24 @@
 
         <section id="recommendations" class="section">
             <div class="section-title">
-                <h3>{{ $tile->name }}</h3>
+                <h3>{{ $sink->name }}</h3>
             </div>
             <div class="section-content">
                 <div class="product">
                     <div class="product-header">
                         <div class="product-image">
-                            <img src="{{ $tile->image }}" alt="product image">
+                            <img src="{{ $sink->image }}" alt="product image">
                         </div>
                         <div class="product-header-sub">
                             <div class="product-price">
-                                {{ $tile->price }} BYN
+                                {{ $sink->price }} BYN
                             </div>
                             <a href="#" class="btn btn-primary btn-cart">В корзину</a>
                         </div>
                     </div>
                     <div class="product-body">
                         <div class="product-description">
-                            {{ $tile->description }}
+                            {{ $sink->description }}
                         </div>
                         <div class="product-parameters">
                             <div class="block-title">
@@ -40,44 +40,40 @@
                             <table class="parameters">
                                 <tr>
                                     <td class="p-title">Название</td>
-                                    <td class="p-text">{{ $tile->name }}</td>
+                                    <td class="p-text">{{ $sink->name }}</td>
                                 </tr>
                                 <tr>
                                     <td class="p-title">Тип</td>
-                                    <td class="p-text">{{ $tile->type }}</td>
+                                    <td class="p-text">{{ $sink->type }}</td>
                                 </tr>
                                 <tr>
                                     <td class="p-title">Цвет</td>
-                                    <td class="p-text">{{ $tile->color }}</td>
+                                    <td class="p-text">{{ $sink->color }}</td>
                                 </tr>
                                 <tr>
                                     <td class="p-title">Форма</td>
-                                    <td class="p-text">{{ $tile->form }}</td>
+                                    <td class="p-text">{{ $sink->form }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-title">Высота</td>
-                                    <td class="p-text">{{ $tile->height }}</td>
+                                    <td class="p-title">Цвет</td>
+                                    <td class="p-text">{{ $sink->color }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-title">Ширина</td>
-                                    <td class="p-text">{{ $tile->width }}</td>
+                                    <td class="p-title">Способ установки</td>
+                                    <td class="p-text">{{ $sink->montage }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-title">Толщина</td>
-                                    <td class="p-text">{{ $tile->depth }}</td>
+                                    <td class="p-title">Материл</td>
+                                    <td class="p-text">{{ $sink->material }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-title">Применение</td>
-                                    <td class="p-text">{{ $tile->purpose }}</td>
+                                    <td class="p-title">Количество чаш</td>
+                                    <td class="p-text">{{ $sink->bowls }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-title">Класс износостойкости</td>
-                                    <td class="p-text">{{ $tile->wear_class }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-title">Морозостойность</td>
+                                    <td class="p-title">Крыло</td>
                                     <td class="p-text">
-                                        @if ($tile->frost_resistance == 1)
+                                        @if ($sink->wing == 1)
                                             Да
                                         @else
                                             Нет
