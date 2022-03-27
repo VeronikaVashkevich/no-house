@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BathController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DoorController;
 use App\Http\Controllers\IndexController;
@@ -44,6 +45,10 @@ Route::get('/tiles/{tile}', [TilesController::class, 'show'])->name('tiles.show'
 //kitchen sinks routes
 Route::get('/sinks', [SinkController::class, 'index'])->name('sinks.index');
 Route::get('/sinks/{sink}', [SinkController::class, 'show'])->name('sinks.show');
+
+//bath routes
+Route::get('/baths', [BathController::class, 'index'])->name('baths.index');
+Route::get('/baths/{bath}', [BathController::class, 'show'])->name('baths.show');
 
 // dashboard routes
 Route::group(['middleware' => ['role:admin']], function () {
@@ -89,5 +94,13 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/edit/sink/{sink}', [SinkController::class, 'edit'])->name('sinks.edit');
     Route::put('/update/sink/{sink}', [SinkController::class, 'update'])->name('sinks.update');
     Route::delete('/destroy/sink/{sink}', [SinkController::class, 'destroy'])->name('sinks.destroy');
+
+    //baths routes
+    Route::get('/dashboard/baths', [BathController::class, 'dashboard'])->name('bathsDashboard');
+    Route::get('/create/bath', [BathController::class, 'create'])->name('baths.create');
+    Route::post('/store/bath', [BathController::class, 'store'])->name('baths.store');
+    Route::get('/edit/bath/{bath}', [BathController::class, 'edit'])->name('baths.edit');
+    Route::put('/update/bath/{bath}', [BathController::class, 'update'])->name('baths.update');
+    Route::delete('/destroy/bath/{bath}', [BathController::class, 'destroy'])->name('baths.destroy');
 
 });

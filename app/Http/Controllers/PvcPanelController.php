@@ -105,10 +105,7 @@ class PvcPanelController extends Controller
         $pvcPanel->description = $request->description;
 
         if ($request->file('image')) {
-            $uploadFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), [
-                'folder' => 'products',
-            ])->getSecurePath();
-            $pvcPanel->image = $uploadFileUrl;
+            $pvcPanel->image = $this->uploadImage($request);
         }
         $pvcPanel->save();
 

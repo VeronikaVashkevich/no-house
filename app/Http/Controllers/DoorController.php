@@ -109,10 +109,7 @@ class DoorController extends Controller
         $door->glass = !empty($request->glass) ? 1 : 0;
 
         if ($request->file('image')) {
-            $uploadFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), [
-                'folder' => 'products',
-            ])->getSecurePath();
-            $door->image = $uploadFileUrl;
+            $door->image = $this->uploadImage($request);
         }
 
         $door->save();

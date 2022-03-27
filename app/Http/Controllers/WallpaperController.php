@@ -110,10 +110,7 @@ class WallpaperController extends Controller
         $wallpaper->is_wet = !empty($request->is_wet) ? 1 : 0;
 
         if ($request->file('image')) {
-            $uploadFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), [
-                'folder' => 'products',
-            ])->getSecurePath();
-            $wallpaper->image = $uploadFileUrl;
+            $wallpaper->image = $this->uploadImage($request);
         }
 
         $wallpaper->save();

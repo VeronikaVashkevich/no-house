@@ -111,10 +111,7 @@ class SinkController extends Controller
         $sink->montage = $request->montage;
         $sink->wing = !empty($request->wing) ? 1 : 0;
         if ($request->file('image')) {
-            $uploadFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), [
-                'folder' => 'products',
-            ])->getSecurePath();
-            $sink->image = $uploadFileUrl;
+            $sink->image = $this->uploadImage($request);
         }
 
         $sink->save();

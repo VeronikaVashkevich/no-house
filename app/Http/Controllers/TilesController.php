@@ -116,10 +116,7 @@ class TilesController extends Controller
         $tile->frost_resistance = !empty($request->frostResistance) ? 1 : 0;
 
         if ($request->file('image')) {
-            $uploadFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), [
-                'folder' => 'products',
-            ])->getSecurePath();
-            $tile->image = $uploadFileUrl;
+            $tile->image = $this->uploadImage($request);
         }
 
         $tile->save();

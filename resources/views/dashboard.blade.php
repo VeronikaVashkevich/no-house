@@ -31,7 +31,9 @@
                         <li class="panel-el">
                             <a href="{{ route('sinksDashboard') }}">Мойки для кухни</a>
                         </li>
-                        <li class="panel-el">Ванны</li>
+                        <li class="panel-el">
+                            <a href="{{ route('bathsDashboard') }}">Ванны</a>
+                        </li>
                         <li class="panel-el">Смесители</li>
                         <li class="panel-el">Ламинат</li>
                         <li class="panel-el">Ленолеум</li>
