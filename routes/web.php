@@ -5,6 +5,7 @@ use App\Http\Controllers\BathController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DoorController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\MixerController;
 use App\Http\Controllers\PvcPanelController;
 use App\Http\Controllers\SinkController;
 use App\Http\Controllers\TilesController;
@@ -49,6 +50,10 @@ Route::get('/sinks/{sink}', [SinkController::class, 'show'])->name('sinks.show')
 //bath routes
 Route::get('/baths', [BathController::class, 'index'])->name('baths.index');
 Route::get('/baths/{bath}', [BathController::class, 'show'])->name('baths.show');
+
+//mixers routes
+Route::get('/mixers', [MixerController::class, 'index'])->name('mixers.index');
+Route::get('/mixers/{mixer}', [MixerController::class, 'show'])->name('mixers.show');
 
 // dashboard routes
 Route::group(['middleware' => ['role:admin']], function () {
@@ -103,4 +108,11 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::put('/update/bath/{bath}', [BathController::class, 'update'])->name('baths.update');
     Route::delete('/destroy/bath/{bath}', [BathController::class, 'destroy'])->name('baths.destroy');
 
+    //mixers routes
+    Route::get('/dashboard/mixers', [MixerController::class, 'dashboard'])->name('mixersDashboard');
+    Route::get('/create/mixer', [MixerController::class, 'create'])->name('mixers.create');
+    Route::post('/store/mixer', [MixerController::class, 'store'])->name('mixers.store');
+    Route::get('/edit/mixer/{mixer}', [MixerController::class, 'edit'])->name('mixers.edit');
+    Route::put('/update/mixer/{mixer}', [MixerController::class, 'update'])->name('mixers.update');
+    Route::delete('/destroy/mixer/{mixer}', [MixerController::class, 'destroy'])->name('mixers.destroy');
 });

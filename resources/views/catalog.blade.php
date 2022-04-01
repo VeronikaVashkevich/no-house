@@ -86,7 +86,7 @@
                                 <a href="{{ route('baths.index') }}" class="menu-link">Ванные</a>
                             </li>
                             <li class="menu-item">
-                                <a href="#" class="menu-link">Смесители</a>
+                                <a href="{{ route('mixers.index') }}" class="menu-link">Смесители</a>
                             </li>
                         </ul>
                     </div>
