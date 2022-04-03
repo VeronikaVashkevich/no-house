@@ -102,7 +102,7 @@
                                 <a href="{{ route('laminate.index') }}" class="menu-link">Ламинат</a>
                             </li>
                             <li class="menu-item">
-                                <a href="#" class="menu-link">Ленолеум</a>
+                                <a href="{{ route('linoleum.index') }}" class="menu-link">Линолеум</a>
                             </li>
                             <li class="menu-item">
                                 <a href="#" class="menu-link">Пробковый пол</a>

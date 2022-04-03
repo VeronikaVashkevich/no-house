@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DoorController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LaminateController;
+use App\Http\Controllers\LinoleumController;
 use App\Http\Controllers\MixerController;
 use App\Http\Controllers\PvcPanelController;
 use App\Http\Controllers\SinkController;
@@ -59,6 +60,10 @@ Route::get('/mixers/{mixer}', [MixerController::class, 'show'])->name('mixers.sh
 //laminate routes
 Route::get('/laminate', [LaminateController::class, 'index'])->name('laminate.index');
 Route::get('/laminate/{laminate}', [LaminateController::class, 'show'])->name('laminate.show');
+
+//linoleum routes
+Route::get('/linoleum', [LinoleumController::class, 'index'])->name('linoleum.index');
+Route::get('/linoleum/{linoleum}', [LinoleumController::class, 'show'])->name('linoleum.show');
 
 // dashboard routes
 Route::group(['middleware' => ['role:admin']], function () {
@@ -127,4 +132,13 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/edit/laminate/{laminate}', [LaminateController::class, 'edit'])->name('laminate.edit');
     Route::put('/update/laminate/{laminate}', [LaminateController::class, 'update'])->name('laminate.update');
     Route::delete('/destroy/laminate/{laminate}', [LaminateController::class, 'destroy'])->name('laminate.destroy');
+
+    //linoleum routes
+    Route::get('/dashboard/linoleum', [LinoleumController::class, 'dashboard'])->name('linoleumDashboard');
+    Route::get('/create/linoleum', [LinoleumController::class, 'create'])->name('linoleum.create');
+    Route::post('/store/linoleum', [LinoleumController::class, 'store'])->name('linoleum.store');
+    Route::get('/edit/linoleum/{linoleum}', [LinoleumController::class, 'edit'])->name('linoleum.edit');
+    Route::put('/update/linoleum/{linoleum}', [LinoleumController::class, 'update'])->name('linoleum.update');
+    Route::delete('/destroy/linoleum/{linoleum}', [LinoleumController::class, 'destroy'])->name('linoleum.destroy');
+
 });

@@ -40,7 +40,9 @@
                         <li class="panel-el">
                             <a href="{{ route('laminateDashboard') }}">Ламинат</a>
                         </li>
-                        <li class="panel-el">Ленолеум</li>
+                        <li class="panel-el">
+                            <a href="{{ route('linoleumDashboard') }}">Линолеум</a>
+                        </li>
                         <li class="panel-el">Пробковый пол</li>
                         <li class="panel-el">Краски, эмали, лаки</li>
                     </ul>
