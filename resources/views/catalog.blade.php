@@ -99,7 +99,7 @@
                         </div>
                         <ul class="menu-items">
                             <li class="menu-item">
-                                <a href="#" class="menu-link">Ламинат</a>
+                                <a href="{{ route('laminate.index') }}" class="menu-link">Ламинат</a>
                             </li>
                             <li class="menu-item">
                                 <a href="#" class="menu-link">Ленолеум</a>

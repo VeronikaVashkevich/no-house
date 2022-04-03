@@ -5,6 +5,7 @@ use App\Http\Controllers\BathController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DoorController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\LaminateController;
 use App\Http\Controllers\MixerController;
 use App\Http\Controllers\PvcPanelController;
 use App\Http\Controllers\SinkController;
@@ -55,6 +56,10 @@ Route::get('/baths/{bath}', [BathController::class, 'show'])->name('baths.show')
 Route::get('/mixers', [MixerController::class, 'index'])->name('mixers.index');
 Route::get('/mixers/{mixer}', [MixerController::class, 'show'])->name('mixers.show');
 
+//laminate routes
+Route::get('/laminate', [LaminateController::class, 'index'])->name('laminate.index');
+Route::get('/laminate/{laminate}', [LaminateController::class, 'show'])->name('laminate.show');
+
 // dashboard routes
 Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -76,7 +81,6 @@ Route::group(['middleware' => ['role:admin']], function () {
 //    Route::resource('doors', DoorController::class)->except([
 //        'index', 'show'
 //    ]);
-
     //troubles with resource controller
     Route::get('/create/door', [DoorController::class, 'create'])->name('doors.create');
     Route::post('/store/door', [DoorController::class, 'store'])->name('doors.store');
@@ -115,4 +119,12 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/edit/mixer/{mixer}', [MixerController::class, 'edit'])->name('mixers.edit');
     Route::put('/update/mixer/{mixer}', [MixerController::class, 'update'])->name('mixers.update');
     Route::delete('/destroy/mixer/{mixer}', [MixerController::class, 'destroy'])->name('mixers.destroy');
+
+    //laminate routes
+    Route::get('/dashboard/laminate', [LaminateController::class, 'dashboard'])->name('laminateDashboard');
+    Route::get('/create/laminate', [LaminateController::class, 'create'])->name('laminate.create');
+    Route::post('/store/laminate', [LaminateController::class, 'store'])->name('laminate.store');
+    Route::get('/edit/laminate/{laminate}', [LaminateController::class, 'edit'])->name('laminate.edit');
+    Route::put('/update/laminate/{laminate}', [LaminateController::class, 'update'])->name('laminate.update');
+    Route::delete('/destroy/laminate/{laminate}', [LaminateController::class, 'destroy'])->name('laminate.destroy');
 });
