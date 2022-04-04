@@ -105,7 +105,7 @@
                                 <a href="{{ route('linoleum.index') }}" class="menu-link">Линолеум</a>
                             </li>
                             <li class="menu-item">
-                                <a href="#" class="menu-link">Пробковый пол</a>
+                                <a href="{{ route('parquet.index') }}" class="menu-link">Паркет</a>
                             </li>
                         </ul>
                     </div>

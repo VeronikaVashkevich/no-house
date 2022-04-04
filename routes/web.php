@@ -8,6 +8,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LaminateController;
 use App\Http\Controllers\LinoleumController;
 use App\Http\Controllers\MixerController;
+use App\Http\Controllers\ParquetController;
 use App\Http\Controllers\PvcPanelController;
 use App\Http\Controllers\SinkController;
 use App\Http\Controllers\TilesController;
@@ -64,6 +65,10 @@ Route::get('/laminate/{laminate}', [LaminateController::class, 'show'])->name('l
 //linoleum routes
 Route::get('/linoleum', [LinoleumController::class, 'index'])->name('linoleum.index');
 Route::get('/linoleum/{linoleum}', [LinoleumController::class, 'show'])->name('linoleum.show');
+
+//parquet routes
+Route::get('/parquet', [ParquetController::class, 'index'])->name('parquet.index');
+Route::get('/parquet/{parquet}', [ParquetController::class, 'show'])->name('parquet.show');
 
 // dashboard routes
 Route::group(['middleware' => ['role:admin']], function () {
@@ -140,5 +145,13 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/edit/linoleum/{linoleum}', [LinoleumController::class, 'edit'])->name('linoleum.edit');
     Route::put('/update/linoleum/{linoleum}', [LinoleumController::class, 'update'])->name('linoleum.update');
     Route::delete('/destroy/linoleum/{linoleum}', [LinoleumController::class, 'destroy'])->name('linoleum.destroy');
+
+    //parquet routes
+    Route::get('/dashboard/parquet', [ParquetController::class, 'dashboard'])->name('parquetDashboard');
+    Route::get('/create/parquet', [ParquetController::class, 'create'])->name('parquet.create');
+    Route::post('/store/parquet', [ParquetController::class, 'store'])->name('parquet.store');
+    Route::get('/edit/parquet/{parquet}', [ParquetController::class, 'edit'])->name('parquet.edit');
+    Route::put('/update/parquet/{parquet}', [ParquetController::class, 'update'])->name('parquet.update');
+    Route::delete('/destroy/parquet/{parquet}', [ParquetController::class, 'destroy'])->name('parquet.destroy');
 
 });
