@@ -10,11 +10,13 @@ class ParquetController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        //
+        return view('parquet.parquetes', [
+            'parquet' => Parquet::all(),
+        ]);
     }
 
     public function dashboard()
@@ -64,22 +66,26 @@ class ParquetController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Parquet  $parquet
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Parquet $parquet)
     {
-        //
+        return view('parquet.parquet', [
+            'parquet' => $parquet,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Parquet  $parquet
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Parquet $parquet)
     {
-        //
+        return view('parquet.edit-parquet', [
+            'parquet' => $parquet,
+        ]);
     }
 
     /**
@@ -87,21 +93,38 @@ class ParquetController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Parquet  $parquet
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, Parquet $parquet)
     {
-        //
+        $parquet->name = $request->name;
+        $parquet->price = $request->price;
+        $parquet->description = $request->description;
+        $parquet->type = $request->type;
+        $parquet->tree = $request->tree;
+        $parquet->covering = $request->covering;
+        $parquet->length = $request->length;
+        $parquet->width = $request->width;
+        $parquet->thickness = $request->thickness;
+        if (!empty($request->file('image'))) {
+            $parquet->image = $this->uploadImage($request);
+        }
+
+        $parquet->save();
+
+        return redirect('/dashboard/parquet');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Parquet  $parquet
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy(Parquet $parquet)
     {
-        //
+        $parquet->delete();
+
+        return redirect('/dashboard/parquet');
     }
 }
