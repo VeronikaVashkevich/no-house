@@ -124,7 +124,7 @@
                                 <a href="{{ route('paint.index') }}" class="menu-link">Эмали</a>
                             </li>
                             <li class="menu-item">
-                                <a href="{{ route('varnishes.dashboard') }}" class="menu-link">Лаки</a>
+                                <a href="{{ route('varnishes.index') }}" class="menu-link">Лаки</a>
                             </li>
                         </ul>
                     </div>

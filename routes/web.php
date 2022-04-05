@@ -78,7 +78,7 @@ Route::get('/paint/{paint}', [PaintController::class, 'show'])->name('paint.show
 
 //varnishes routes
 Route::get('/varnishes', [VarnishController::class, 'index'])->name('varnishes.index');
-Route::get('/varnishes/{paint}', [VarnishController::class, 'show'])->name('varnishes.show');
+Route::get('/varnishes/{varnish}', [VarnishController::class, 'show'])->name('varnishes.show');
 
 // dashboard routes
 Route::group(['middleware' => ['role:admin']], function () {
