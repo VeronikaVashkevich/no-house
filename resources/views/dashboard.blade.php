@@ -49,7 +49,9 @@
                         <li class="panel-el">
                             <a href="{{ route('paintDashboard') }}">Краски, эмали</a>
                         </li>
-                        <li class="panel-el">Лаки</li>
+                        <li class="panel-el">
+                            <a href="{{ route('varnishesDashboard') }}">Лаки</a>
+                        </li>
                     </ul>
                 </div>
             </div>

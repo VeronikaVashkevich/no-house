@@ -14,6 +14,7 @@ use App\Http\Controllers\SinkController;
 use App\Http\Controllers\TilesController;
 use App\Http\Controllers\WallpaperController;
 use App\Http\Controllers\PaintController;
+use App\Http\Controllers\VarnishController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -74,6 +75,10 @@ Route::get('/parquet/{parquet}', [ParquetController::class, 'show'])->name('parq
 //paint routes
 Route::get('/paint', [PaintController::class, 'index'])->name('paint.index');
 Route::get('/paint/{paint}', [PaintController::class, 'show'])->name('paint.show');
+
+//varnishes routes
+Route::get('/varnishes', [VarnishController::class, 'index'])->name('varnishes.index');
+Route::get('/varnishes/{paint}', [VarnishController::class, 'show'])->name('varnishes.show');
 
 // dashboard routes
 Route::group(['middleware' => ['role:admin']], function () {
@@ -166,5 +171,13 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/edit/paint/{paint}', [PaintController::class, 'edit'])->name('paint.edit');
     Route::put('/update/paint/{paint}', [PaintController::class, 'update'])->name('paint.update');
     Route::delete('/destroy/paint/{paint}', [PaintController::class, 'destroy'])->name('paint.destroy');
+
+    //varnishes routes
+    Route::get('/dashboard/varnishes', [VarnishController::class, 'dashboard'])->name('varnishesDashboard');
+    Route::get('/create/varnishes', [VarnishController::class, 'create'])->name('varnishes.create');
+    Route::post('/store/varnishes', [VarnishController::class, 'store'])->name('varnishes.store');
+    Route::get('/edit/varnishes/{varnish}', [VarnishController::class, 'edit'])->name('varnishes.edit');
+    Route::put('/update/varnishes/{varnish}', [VarnishController::class, 'update'])->name('varnishes.update');
+    Route::delete('/destroy/varnishes/{varnish}', [VarnishController::class, 'destroy'])->name('varnishes.destroy');
 
 });
