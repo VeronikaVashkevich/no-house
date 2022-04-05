@@ -46,7 +46,10 @@
                         <li class="panel-el">
                             <a href="{{ route('parquetDashboard') }}">Паркет</a>
                         </li>
-                        <li class="panel-el">Краски, эмали, лаки</li>
+                        <li class="panel-el">
+                            <a href="{{ route('paintDashboard') }}">Краски, эмали</a>
+                        </li>
+                        <li class="panel-el">Лаки</li>
                     </ul>
                 </div>
             </div>

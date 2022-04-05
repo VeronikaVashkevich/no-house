@@ -13,6 +13,7 @@ use App\Http\Controllers\PvcPanelController;
 use App\Http\Controllers\SinkController;
 use App\Http\Controllers\TilesController;
 use App\Http\Controllers\WallpaperController;
+use App\Http\Controllers\PaintController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -69,6 +70,10 @@ Route::get('/linoleum/{linoleum}', [LinoleumController::class, 'show'])->name('l
 //parquet routes
 Route::get('/parquet', [ParquetController::class, 'index'])->name('parquet.index');
 Route::get('/parquet/{parquet}', [ParquetController::class, 'show'])->name('parquet.show');
+
+//paint routes
+Route::get('/paint', [PaintController::class, 'index'])->name('paint.index');
+Route::get('/paint/{paint}', [PaintController::class, 'show'])->name('paint.show');
 
 // dashboard routes
 Route::group(['middleware' => ['role:admin']], function () {
@@ -153,5 +158,13 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/edit/parquet/{parquet}', [ParquetController::class, 'edit'])->name('parquet.edit');
     Route::put('/update/parquet/{parquet}', [ParquetController::class, 'update'])->name('parquet.update');
     Route::delete('/destroy/parquet/{parquet}', [ParquetController::class, 'destroy'])->name('parquet.destroy');
+
+    //paint routes
+    Route::get('/dashboard/paint', [PaintController::class, 'dashboard'])->name('paintDashboard');
+    Route::get('/create/paint', [PaintController::class, 'create'])->name('paint.create');
+    Route::post('/store/paint', [PaintController::class, 'store'])->name('paint.store');
+    Route::get('/edit/paint/{paint}', [PaintController::class, 'edit'])->name('paint.edit');
+    Route::put('/update/paint/{paint}', [PaintController::class, 'update'])->name('paint.update');
+    Route::delete('/destroy/paint/{paint}', [PaintController::class, 'destroy'])->name('paint.destroy');
 
 });

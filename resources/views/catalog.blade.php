@@ -118,10 +118,10 @@
                         </div>
                         <ul class="menu-items">
                             <li class="menu-item">
-                                <a href="#" class="menu-link">Краски</a>
+                                <a href="{{ route('paint.index') }}" class="menu-link">Краски</a>
                             </li>
                             <li class="menu-item">
-                                <a href="#" class="menu-link">Эмали</a>
+                                <a href="{{ route('paint.index') }}" class="menu-link">Эмали</a>
                             </li>
                             <li class="menu-item">
                                 <a href="#" class="menu-link">Лаки</a>
