@@ -10,11 +10,13 @@ class PaintController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        //
+        return view('paint.paints', [
+            'paints' => Paint::all(),
+        ]);
     }
 
     public function dashboard() {
@@ -24,7 +26,6 @@ class PaintController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
@@ -34,7 +35,6 @@ class PaintController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
@@ -60,47 +60,65 @@ class PaintController extends Controller
     }
 
     /**
-     * Display the specified resource.
      *
      * @param  \App\Models\Paint  $paint
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Paint $paint)
     {
-        //
+        return view('paint.paint', [
+            'paint' => $paint,
+        ]);
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
      * @param  \App\Models\Paint  $paint
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Paint $paint)
     {
-        //
+        return view('paint.edit-paint', [
+            'paint' => $paint,
+        ]);
     }
 
     /**
-     * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Paint  $paint
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, Paint $paint)
     {
-        //
+        $paint->name = $request->name;
+        $paint->description = $request->description;
+        $paint->price = $request->price;
+        $paint->type = $request->type;
+        $paint->color = $request->color;
+        $paint->appointment = $request->appointment;
+        $paint->material = $request->material;
+        $paint->time = $request->time;
+        $paint->weight = $request->weight;
+
+        if (!empty($request->file('image'))) {
+            $paint->image = $this->uploadImage($request);
+        }
+
+        $paint->save();
+
+        return redirect('/dashboard/paint');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Paint  $paint
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy(Paint $paint)
     {
-        //
+        $paint->delete();
+
+        return redirect('/dashboard/paint');
     }
 }
