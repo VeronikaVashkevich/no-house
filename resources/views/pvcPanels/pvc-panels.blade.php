@@ -24,7 +24,7 @@
                                 <div class="good-name">
                                     <a href="{{ route('pvcPanels.show', $pvcPanel) }}">{{ $pvcPanel->name }}</a>
                                 </div>
-                                <a href="#">
+                                <a href="{{ route('addToCart', ['className' => 'pvcPanel', 'id' => $pvcPanel->id]) }}">
                                     <input type="button" value="В корзину" class="btn btn-primary">
                                 </a>
                             </div>

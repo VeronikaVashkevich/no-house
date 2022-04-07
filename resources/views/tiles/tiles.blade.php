@@ -24,7 +24,7 @@
                                 <div class="good-name">
                                     <a href="{{ route('tiles.show', $tile) }}">{{ $tile->name }}</a>
                                 </div>
-                                <a href="#">
+                                <a href="{{ route('addToCart', ['className' => 'tile', 'id' => $tile->id]) }}">
                                     <input type="button" value="В корзину" class="btn btn-primary">
                                 </a>
                             </div>

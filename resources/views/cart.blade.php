@@ -18,38 +18,28 @@
             </div>
             <div class="section-content">
                 <div class="cart">
-                    <div class="cart-item">
-                        <div class="cart-item-image">
-                            <img src="{{ asset('img/cart-image.png') }}" alt="cart image">
-                        </div>
-                        <div class="cart-item-name">
-                            <h6>Краска Dekor ВД-АК-216 для потолков (14 кг)</h6>
-                        </div>
-                        <div class="cart-item-qty">
-                            <input type="button" value="-" class="btn-qty">
-                            <span class="qty">1</span>
-                            <input type="button" value="+" class="btn-qty">
-                        </div>
-                        <div class="cart-item-price">34.76 BYN</div>
-                    </div>
+                    @if(count($cart) != 0)
+                        @foreach($cart as $item)
+                            <div class="cart-item">
+                                <div class="cart-item-image">
+                                    <img src="{{ $item->attributes->image }}" alt="cart image">
+                                </div>
+                                <div class="cart-item-name">
+                                    <h6>{{ $item->name }}</h6>
+                                </div>
+                                <div class="cart-item-qty">
+                                    <input type="submit" value="-" class="btn-qty">
+                                    <span class="qty">{{ $item->quantity }}</span>
+                                    <input type="button" value="+" class="btn-qty">
+                                </div>
+                                <div class="cart-item-price">{{ $item->price }}</div>
+                            </div>
+                        @endforeach
+                    @endif
 
-                    <div class="cart-item">
-                        <div class="cart-item-image">
-                            <img src="{{ asset('img/cart-image.png') }}" alt="cart image">
-                        </div>
-                        <div class="cart-item-name">
-                            <h6>Краска Dekor ВД-АК-216 для потолков (14 кг)</h6>
-                        </div>
-                        <div class="cart-item-qty">
-                            <input type="button" value="-" class="btn-qty">
-                            <span class="qty">1</span>
-                            <input type="button" value="+" class="btn-qty">
-                        </div>
-                        <div class="cart-item-price">34.76 BYN</div>
-                    </div>
                     <div class="total-cost">
                         Общая стоимость:
-                        <span class="cost">69.52 BYN</span>
+                        <span class="cost">{{ $total }}</span>
                     </div>
                 </div>
 

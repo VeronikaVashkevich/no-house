@@ -24,7 +24,7 @@
                                 <div class="good-name">
                                     <a href="{{ route('varnishes.show', $varnish) }}">{{ $varnish->name }}</a>
                                 </div>
-                                <a href="#">
+                                <a href="{{ route('addToCart', ['className' => 'varnish', 'id' => $varnish->id]) }}">
                                     <input type="button" value="В корзину" class="btn btn-primary">
                                 </a>
                             </div>

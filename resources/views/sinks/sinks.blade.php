@@ -24,7 +24,7 @@
                                 <div class="good-name">
                                     <a href="{{ route('sinks.show', $sink) }}">{{ $sink->name }}</a>
                                 </div>
-                                <a href="#">
+                                <a href="{{ route('addToCart', ['className' => 'sink', 'id' => $sink->id]) }}">
                                     <input type="button" value="В корзину" class="btn btn-primary">
                                 </a>
                             </div>

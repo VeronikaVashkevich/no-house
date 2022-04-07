@@ -26,7 +26,7 @@
                             <div class="product-price">
                                 {{ $tile->price }} BYN
                             </div>
-                            <a href="#" class="btn btn-primary btn-cart">В корзину</a>
+                            <a href="{{ route('addToCart', ['className' => 'tile', 'id' => $tile->id]) }}" class="btn btn-primary btn-cart">В корзину</a>
                         </div>
                     </div>
                     <div class="product-body">

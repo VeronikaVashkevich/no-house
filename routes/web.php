@@ -27,6 +27,8 @@ Route::get('/product', [IndexController::class, 'product'])->name('product');
 Route::get('/products', [IndexController::class, 'products'])->name('products');
 
 Route::get('/cart', [IndexController::class, 'cart'])->name('cart');
+Route::get('/add-to-cart', [IndexController::class, 'addCart'])->name('addToCart');
+Route::get('/delete-from-cart', [IndexController::class, 'deleteFormCart'])->name('deleteFromCart');
 
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
