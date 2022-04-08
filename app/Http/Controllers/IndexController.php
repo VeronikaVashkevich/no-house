@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Filters\ProductFilter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -74,5 +75,17 @@ class IndexController extends Controller
 
     public function products() {
         return view('products');
+    }
+
+    public function search(ProductFilter $productFilter) {
+        $products = array();
+
+        foreach ($this::CLASSES as $class) {
+            $products = array_merge($class::filter($productFilter)->get()->toArray(), $products);
+        }
+
+        return view('products', [
+            'goods' => $products,
+        ]);
     }
 }

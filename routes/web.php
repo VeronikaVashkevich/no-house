@@ -26,6 +26,8 @@ Route::get('/reviews', [IndexController::class, 'reviews'])->name('reviews');
 Route::get('/product', [IndexController::class, 'product'])->name('product');
 Route::get('/products', [IndexController::class, 'products'])->name('products');
 
+Route::get('/search', [IndexController::class, 'search'])->name('search');
+
 Route::get('/cart', [IndexController::class, 'cart'])->name('cart');
 Route::get('/add-to-cart', [IndexController::class, 'addCart'])->name('addToCart');
 Route::get('/delete-from-cart', [IndexController::class, 'deleteFormCart'])->name('deleteFromCart');

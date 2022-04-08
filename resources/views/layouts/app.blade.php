@@ -27,9 +27,9 @@
                             <a href="{{ route('index') }}">no-house</a>
                         </div>
                         <div class="header-search">
-                            <form action="#" id="searchForm">
+                            <form action="{{ route('search') }}" id="searchForm" method="get">
                                 <label for="search">
-                                    <input type="text" name="search" id="search" placeholder="Поиск товаров для дома">
+                                    <input type="text" name="search_field" id="search" placeholder="Поиск товаров для дома">
                                 </label>
                                 <button type="submit" class="btn btn-search">Поиск</button>
                             </form>
