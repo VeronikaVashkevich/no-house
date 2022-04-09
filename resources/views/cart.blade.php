@@ -28,19 +28,46 @@
                                     <h6>{{ $item->name }}</h6>
                                 </div>
                                 <div class="cart-item-qty">
-                                    <input type="submit" value="-" class="btn-qty">
-                                    <span class="qty">{{ $item->quantity }}</span>
-                                    <input type="button" value="+" class="btn-qty">
+                                    <select name="qty" class="form-control item-qty" data-price="{{ $item->price }}">
+                                        @for($i = 1; $i <= 5; $i++)
+                                            <option value="{{ $i }}"
+                                                    @if ($i == $item->quantity)
+                                                    selected
+                                                @endif
+                                            >
+                                                {{ $i }}
+                                            </option>
+                                        @endfor
+                                    </select>
+                                   {{-- <form action="{{route('deleteFromCart', $item->id)}}" method="get"
+                                          class="minus-item">
+                                        <input type="hidden" name="id" value="{{ $item->id }}">
+                                        <input type="button" value="-" class="btn-qty btn-qty-minus">
+                                    </form>
+                                    <span class="qty" data-price="{{ $item->price }}">{{ $item->quantity }}</span>
+                                    <input type="button" value="+" class="btn-qty btn-qty-plus">--}}
                                 </div>
                                 <div class="cart-item-price">{{ $item->price }}</div>
+                                <div class="cart-item-delete">
+                                    <form action="{{ route('deleteFromCart', $item->id) }}">
+                                        <input type="hidden" name="id" value="{{ $item->id }}">
+                                        <input type="submit" value="Удалить" class="btn">
+                                    </form>
+                                </div>
                             </div>
                         @endforeach
-                    @endif
 
                     <div class="total-cost">
                         Общая стоимость:
-                        <span class="cost">{{ $total }}</span>
+                        <span class="cost">{{ $total }} BYN</span>
                     </div>
+
+                    @else
+
+                        <h2>У вас нет товаров в корзине</h2>
+
+                    @endif
+
                 </div>
 
                 <div class="delivery">
@@ -81,7 +108,7 @@
                                     </label>
                                 </div>
 
-                                <button class="btn btn-primary">Оформить доставку</button>
+                                <button class="btn btn-primary" @if(count($cart) == 0) disabled @endif type="submit">Оформить доставку</button>
                             </form>
                             <div class="delivery-pay">
                                 Оплата наличными или картой при получении
@@ -92,6 +119,26 @@
             </div>
         </section>
     </div>
+
+    <script>
+        var total = $('.cost').text();
+
+        $(document).ready(function () {
+            $('.item-qty').each(function () {
+                $(this).change(function () {
+                    total = 0;
+
+                    $('.item-qty').each(function () {
+                        total += $(this).data('price') * $(this).val();
+                        console.log($(this).data('price'));
+                    });
+
+                    $('.cost').text(total.toFixed(2) + 'BYN');
+                    // $('[name="totalSum"]').val(total.toFixed(2))
+                })
+            })
+        })
+    </script>
 @endsection
 
 @section('footer')
