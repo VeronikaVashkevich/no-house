@@ -9,7 +9,14 @@
 @section('content')
     <div class="container">
         <section id="slider">
-
+            <div class="index-picture">
+                <div class="text-block-index">
+                    <h3>Создайте уют в доме своими руками, используя наши продукты</h3>
+                </div>
+                <div class="text-block-index">
+                    <h4>У нас вы найдете все необходимое: от лака для пола до акриловой ванной</h4>
+                </div>
+            </div>
         </section>
 
         <section id="recommendations" class="section">
