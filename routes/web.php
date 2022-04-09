@@ -10,6 +10,7 @@ use App\Http\Controllers\LinoleumController;
 use App\Http\Controllers\MixerController;
 use App\Http\Controllers\ParquetController;
 use App\Http\Controllers\PvcPanelController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SinkController;
 use App\Http\Controllers\TilesController;
 use App\Http\Controllers\WallpaperController;
@@ -21,7 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/catalog', [IndexController::class, 'catalog'])->name('catalog');
 
-Route::get('/reviews', [IndexController::class, 'reviews'])->name('reviews');
+//reviews
+Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
+Route::post('/review/store', [ReviewController::class, 'store'])->name('reviews.store');
 
 Route::get('/product', [IndexController::class, 'product'])->name('product');
 Route::get('/products', [IndexController::class, 'products'])->name('products');
@@ -183,5 +186,10 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/edit/varnishes/{varnish}', [VarnishController::class, 'edit'])->name('varnishes.edit');
     Route::put('/update/varnishes/{varnish}', [VarnishController::class, 'update'])->name('varnishes.update');
     Route::delete('/destroy/varnishes/{varnish}', [VarnishController::class, 'destroy'])->name('varnishes.destroy');
+
+    //reviews routes
+    Route::get('/dashboard/reviews', [ReviewController::class, 'dashboard'])->name('reviewsDashboard');
+    Route::put('/update/review/{review}', [ReviewController::class, 'update'])->name('reviews.update');
+    Route::delete('/destroy/review/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 
 });

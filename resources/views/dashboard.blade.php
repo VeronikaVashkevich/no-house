@@ -52,6 +52,9 @@
                         <li class="panel-el">
                             <a href="{{ route('varnishesDashboard') }}">Лаки</a>
                         </li>
+                        <li class="panel-el">
+                            <a href="{{ route('reviewsDashboard') }}">Отзывы</a>
+                        </li>
                     </ul>
                 </div>
             </div>

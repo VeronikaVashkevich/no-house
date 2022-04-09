@@ -15,27 +15,63 @@
             </div>
             <div class="section-content">
                 <div class="reviews">
-                    <div class="review">
-                        <div class="review-title">Ivan6234</div>
-                        <div class="review-text">
-                            Замечательный сайт, все подробно и понятно написано, ставлю ему 10 из
-                            10. Обязательно буду заказывать еще на нем другие необходимые штуки для моего нового дома на
-                            берегу Тихого океана. Peace!
+                    @foreach($reviews as $review)
+                        <div class="review">
+                            <div class="review-title">{{ $review->username }}</div>
+                            <div class="review-text">{{ $review->text }}</div>
                         </div>
-                    </div>
-                    <div class="review">
-                        <div class="review-title">LarisaKroshka</div>
-                        <div class="review-text">
-                            Все супер, так как заказывала в первый раз, получила неплохую скидку.
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="add-review">
-                    <a href="#" class="btn btn-link">Добавить отзыв</a>
+                    <a class="btn btn-link js-add-review">Добавить отзыв</a>
+                    <div class="add-review-form display-none">
+                        <form action="{{ route('reviews.store') }}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="username" class="form-label">
+
+                                    <input id="username" type="text"
+                                           class="form-control @error('username') is-invalid @enderror"
+                                           name="username" placeholder="Ваше имя"
+                                           required autofocus>
+
+                                    @error('username')
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="text" class="form-label">
+                                    <textarea name="text" id="text" class="form-control"
+                                              placeholder="Текст отзыка"></textarea>
+                                    @error('text')
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">
+                                    Сохранить
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
     </div>
+
+    <script>
+        $(document).ready(function () {
+            $('.js-add-review').click(function () {
+                $('.add-review-form').removeClass('display-none')
+            })
+        })
+    </script>
 @endsection
 
 @section('footer')
