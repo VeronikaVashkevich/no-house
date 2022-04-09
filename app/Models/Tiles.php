@@ -25,6 +25,7 @@ class Tiles extends Model
         'width',
         'height',
         'depth',
+        'routeName',
     ];
 
     public $timestamps = false;

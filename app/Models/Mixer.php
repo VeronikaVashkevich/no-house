@@ -20,6 +20,7 @@ class Mixer extends Model
         'color',
         'material',
         'mechanism',
+        'routeName',
     ];
 
     public $timestamps = false;

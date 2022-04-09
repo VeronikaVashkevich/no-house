@@ -25,6 +25,7 @@ class Laminate extends Model
         'width',
         'length',
         'height',
+        'routeName',
     ];
 
     public $timestamps = false;

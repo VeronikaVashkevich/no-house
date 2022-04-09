@@ -27,7 +27,7 @@
                                     </div>
                                     <div class="good-price">{{ $good['price'] }} BYN</div>
                                     <div class="good-name">
-                                        <a href="{{ route('product') }}">{{ $good['name'] }}</a>
+                                        <a href="{{ route($good['routeName'] . '.show', $good['id']) }}">{{ $good['name'] }}</a>
                                     </div>
                                 </div>
                             @endforeach

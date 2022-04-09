@@ -24,6 +24,7 @@ class Bath extends Model
         'width',
         'height',
         'depth',
+        'routeName',
     ];
 
     public $timestamps = false;

@@ -22,6 +22,7 @@ class Parquet extends Model
         'length',
         'width',
         'thickness',
+        'routeName',
     ];
 
     public $timestamps = false;

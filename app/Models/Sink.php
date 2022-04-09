@@ -23,6 +23,7 @@ class Sink extends Model
         'material',
         'wing',
         'montage',
+        'routeName',
     ];
 
     public $timestamps = false;

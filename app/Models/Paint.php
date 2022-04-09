@@ -22,6 +22,7 @@ class Paint extends Model
         'material',
         'time',
         'weight',
+        'routeName',
     ];
 
     public $timestamps = false;

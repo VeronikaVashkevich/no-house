@@ -20,6 +20,7 @@ class Wallpaper extends Model
         'basis',
         'price',
         'description',
+        'routeName',
     ];
 
     public $timestamps = false;

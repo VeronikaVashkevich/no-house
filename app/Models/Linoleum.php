@@ -21,6 +21,7 @@ class Linoleum extends Model
         'appointment',
         'base',
         'length',
+        'routeName',
     ];
 
     public $timestamps = false;

@@ -23,6 +23,7 @@ class Door extends Model
         'doorTrim',
         'height',
         'width',
+        'routeName',
     ];
 
     public $timestamps = false;

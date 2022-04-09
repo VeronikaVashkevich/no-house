@@ -22,6 +22,7 @@ class Varnish extends Model
         'weight',
         'time',
         'material',
+        'routeName',
     ];
 
     public $timestamps = false;

@@ -19,6 +19,7 @@ class PvcPanel extends Model
         'texture',
         'color',
         'mounting',
+        'routeName',
     ];
 
     public $timestamps = false;
