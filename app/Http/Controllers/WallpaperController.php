@@ -11,10 +11,17 @@ class WallpaperController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param null $is_wet
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function index()
+    public function index($is_wet = null)
     {
+        if (!empty($is_wet)) {
+            return view('wallpapers.wallpapers', [
+                'wallpapers' => Wallpaper::query()->where('is_wet', '=', 1)->get(),
+            ]);
+        }
+
         return view('wallpapers.wallpapers', [
             'wallpapers' => Wallpaper::all(),
         ]);

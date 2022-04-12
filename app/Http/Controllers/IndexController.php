@@ -5,6 +5,16 @@ namespace App\Http\Controllers;
 
 
 use App\Filters\ProductFilter;
+use App\Models\Bath;
+use App\Models\Laminate;
+use App\Models\Linoleum;
+use App\Models\Mixer;
+use App\Models\Paint;
+use App\Models\Parquet;
+use App\Models\PvcPanel;
+use App\Models\Sink;
+use App\Models\Varnish;
+use App\Models\Wallpaper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -19,17 +29,45 @@ class IndexController extends Controller
         return view('catalog');
     }
 
+    public function interiorDecoration()
+    {
+        return view('catalog.interior-decoration', [
+            'wallpapers' => Wallpaper::all(),
+            'pvcPanels' => PvcPanel::all(),
+        ]);
+    }
+
+    public function plumbing()
+    {
+        return view('catalog.plumbing', [
+            'mixers' => Mixer::all(),
+            'baths' => Bath::all(),
+            'sinks' => Sink::all(),
+        ]);
+    }
+
+    public function floor()
+    {
+        return view('catalog.floor', [
+            'laminate' => Laminate::all(),
+            'linoleum' => Linoleum::all(),
+            'parquet' => Parquet::all(),
+        ]);
+    }
+
+    public function allPaints()
+    {
+        return view('catalog.all-paints', [
+            'paints' => Paint::all(),
+            'varnishes' => Varnish::all(),
+        ]);
+    }
+
     //temporary methods
-
-    public function reviews()
-    {
-        return view('reviews');
-    }
-
-    public function product()
-    {
-        return view('product');
-    }
+//    public function product()
+//    {
+//        return view('product');
+//    }
 
     public function cart()
     {
@@ -73,9 +111,9 @@ class IndexController extends Controller
         return redirect()->back();
     }
 
-    public function products() {
-        return view('products');
-    }
+//    public function products() {
+//        return view('products');
+//    }
 
     public function search(ProductFilter $productFilter) {
         $products = array();

@@ -26,8 +26,13 @@ Route::get('/catalog', [IndexController::class, 'catalog'])->name('catalog');
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 Route::post('/review/store', [ReviewController::class, 'store'])->name('reviews.store');
 
-Route::get('/product', [IndexController::class, 'product'])->name('product');
-Route::get('/products', [IndexController::class, 'products'])->name('products');
+//Route::get('/product', [IndexController::class, 'product'])->name('product');
+//Route::get('/products', [IndexController::class, 'products'])->name('products');
+
+Route::get('/interior-decoration', [IndexController::class, 'interiorDecoration'])->name('catalog.interiorDecoration');
+Route::get('/plumbing', [IndexController::class, 'plumbing'])->name('catalog.plumbing');
+Route::get('/floor', [IndexController::class, 'floor'])->name('catalog.floor');
+Route::get('/all-paints', [IndexController::class, 'allPaints'])->name('catalog.allPaints');
 
 Route::get('/search', [IndexController::class, 'search'])->name('search');
 
@@ -40,7 +45,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //wallpapers
-Route::get('/wallpapers', [WallpaperController::class, 'index'])->name('wallpapers.index');
+Route::get('/wallpapers/{is_wet?}', [WallpaperController::class, 'index'])->name('wallpapers.index');
 Route::get('/wallpapers/{wallpaper}', [WallpaperController::class, 'show'])->name('wallpapers.show');
 
 //pvc panels
@@ -48,11 +53,11 @@ Route::get('/pvc-panels', [PvcPanelController::class, 'index'])->name('pvcPanels
 Route::get('/pvc-panels/{pvcPanel}', [PvcPanelController::class, 'show'])->name('pvcPanels.show');
 
 //doors routes
-Route::get('/doors', [DoorController::class, 'index'])->name('doors.index');
+Route::get('/doors/{type?}', [DoorController::class, 'index'])->name('doors.index');
 Route::get('/doors/{door}', [DoorController::class, 'show'])->name('doors.show');
 
 //tiles routes
-Route::get('/tiles', [TilesController::class, 'index'])->name('tiles.index');
+Route::get('/tiles/{type?}', [TilesController::class, 'index'])->name('tiles.index');
 Route::get('/tiles/{tile}', [TilesController::class, 'show'])->name('tiles.show');
 
 //kitchen sinks routes
@@ -80,7 +85,7 @@ Route::get('/parquet', [ParquetController::class, 'index'])->name('parquet.index
 Route::get('/parquet/{parquet}', [ParquetController::class, 'show'])->name('parquet.show');
 
 //paint routes
-Route::get('/paint', [PaintController::class, 'index'])->name('paint.index');
+Route::get('/paint/{type?}', [PaintController::class, 'index'])->name('paint.index');
 Route::get('/paint/{paint}', [PaintController::class, 'show'])->name('paint.show');
 
 //varnishes routes

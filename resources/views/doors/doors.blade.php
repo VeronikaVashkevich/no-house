@@ -15,20 +15,24 @@
             <div class="section-content">
                 <div class="goods-group">
                     <div class="goods">
-                        @foreach($doors as $door)
-                            <div class="good">
-                                <div class="good-image">
-                                    <img src="{{ $door->image }}" alt="good picture">
+                        @if(count($doors) >= 1)
+                            @foreach($doors as $door)
+                                <div class="good">
+                                    <div class="good-image">
+                                        <img src="{{ $door->image }}" alt="good picture">
+                                    </div>
+                                    <div class="good-price">{{ $door->price }} BYN</div>
+                                    <div class="good-name">
+                                        <a href="{{ route('doors.show', $door->id) }}">{{ $door->name }}</a>
+                                    </div>
+                                    <a href="{{ route('addToCart', ['className' => 'door', 'id' => $door->id]) }}">
+                                        <input type="button" value="В корзину" class="btn btn-primary">
+                                    </a>
                                 </div>
-                                <div class="good-price">{{ $door->price }} BYN</div>
-                                <div class="good-name">
-                                    <a href="{{ route('doors.show', $door->id) }}">{{ $door->name }}</a>
-                                </div>
-                                <a href="{{ route('addToCart', ['className' => 'door', 'id' => $door->id]) }}">
-                                    <input type="button" value="В корзину" class="btn btn-primary">
-                                </a>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @else
+                            <h2>Увы, у нас нет соответствующих товаров</h2>
+                        @endif
                     </div>
                 </div>
             </div>

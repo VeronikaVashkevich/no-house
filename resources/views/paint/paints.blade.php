@@ -16,18 +16,20 @@
                 <div class="goods-group">
                     <div class="goods">
                         @foreach($paints as $paint)
-                            <div class="good">
-                                <div class="good-image">
-                                    <img src="{{ $paint->image }}" alt="good picture">
+                            @if($paint->type == $type)
+                                <div class="good">
+                                    <div class="good-image">
+                                        <img src="{{ $paint->image }}" alt="good picture">
+                                    </div>
+                                    <div class="good-price">{{ $paint->price }} BYN</div>
+                                    <div class="good-name">
+                                        <a href="{{ route('paint.show', $paint) }}">{{ $paint->name }}</a>
+                                    </div>
+                                    <a href="{{ route('addToCart', ['className' => 'paint', 'id' => $paint->id]) }}">
+                                        <input type="button" value="В корзину" class="btn btn-primary">
+                                    </a>
                                 </div>
-                                <div class="good-price">{{ $paint->price }} BYN</div>
-                                <div class="good-name">
-                                    <a href="{{ route('paint.show', $paint) }}">{{ $paint->name }}</a>
-                                </div>
-                                <a href="#">
-                                    <input type="button" value="В корзину" class="btn btn-primary">
-                                </a>
-                            </div>
+                            @endif
                         @endforeach
                     </div>
                 </div>

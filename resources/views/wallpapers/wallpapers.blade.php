@@ -15,20 +15,24 @@
             <div class="section-content">
                 <div class="goods-group">
                     <div class="goods">
-                        @foreach($wallpapers as $wallpaper)
-                            <div class="good">
-                                <div class="good-image">
-                                    <img src="{{ $wallpaper->image }}" alt="good picture">
+                        @if(count($wallpapers) >= 1)
+                            @foreach($wallpapers as $wallpaper)
+                                <div class="good">
+                                    <div class="good-image">
+                                        <img src="{{ $wallpaper->image }}" alt="good picture">
+                                    </div>
+                                    <div class="good-price">{{ $wallpaper->price }} BYN</div>
+                                    <div class="good-name">
+                                        <a href="{{ route('wallpapers.show', $wallpaper->id) }}">{{ $wallpaper->name }}</a>
+                                    </div>
+                                    <a href="{{ route('addToCart', ['className' => 'wallpaper', 'id' => $wallpaper->id]) }}">
+                                        <input type="button" value="В корзину" class="btn btn-primary">
+                                    </a>
                                 </div>
-                                <div class="good-price">{{ $wallpaper->price }} BYN</div>
-                                <div class="good-name">
-                                    <a href="{{ route('wallpapers.show', $wallpaper->id) }}">{{ $wallpaper->name }}</a>
-                                </div>
-                                <a href="{{ route('addToCart', ['className' => 'wallpaper', 'id' => $wallpaper->id]) }}">
-                                    <input type="button" value="В корзину" class="btn btn-primary">
-                                </a>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @else
+                            <h2>Увы, у нас нет соответствующих товаров</h2>
+                        @endif
                     </div>
                 </div>
             </div>

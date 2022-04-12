@@ -11,10 +11,23 @@ class DoorController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param null $type
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index()
+    public function index($type = null)
     {
+        if (!empty($type)) {
+            if ($type === 'glass') {
+                return view('doors.doors', [
+                    'doors' => Door::query()->where('glass', '=', 1)->get(),
+                ]);
+            } else {
+                return view('doors.doors', [
+                    'doors' => Door::query()->where('glass', '<>', 1)->get(),
+                ]);
+            }
+        }
+
         return view('doors.doors', [
             'doors' => Door::all(),
         ]);

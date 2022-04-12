@@ -17,7 +17,7 @@
                 <div class="menu">
                     <div class="menu-list">
                         <div class="menu-list-title">
-                            <a href="#" class="menu-link">
+                            <a href="{{ route('catalog.interiorDecoration') }}" class="menu-link">
                                 <h4>Внутренняя отделка</h4>
                             </a>
                         </div>
@@ -29,7 +29,7 @@
                                 <a href="{{ route('pvcPanels.index') }}" class="menu-link">Панели ПВХ</a>
                             </li>
                             <li class="menu-item">
-                                <a href="#" class="menu-link">Жидкие обои</a>
+                                <a href="{{ route('wallpapers.index', ['is_wet' => 1]) }}" class="menu-link">Жидкие обои</a>
                             </li>
                         </ul>
                     </div>
@@ -42,13 +42,13 @@
                         </div>
                         <ul class="menu-items">
                             <li class="menu-item">
-                                <a href="#" class="menu-link">Межкомнатные двери</a>
+                                <a href="{{ route('doors.index', ['type' => 'indoor']) }}" class="menu-link">Межкомнатные двери</a>
                             </li>
                             <li class="menu-item">
-                                <a href="#" class="menu-link">Входные двери</a>
+                                <a href="{{ route('doors.index', ['type' => 'outdoor']) }}" class="menu-link">Входные двери</a>
                             </li>
                             <li class="menu-item">
-                                <a href="#" class="menu-link">Стеклянные двери</a>
+                                <a href="{{ route('doors.index', ['type' => 'glass']) }}" class="menu-link">Стеклянные двери</a>
                             </li>
                         </ul>
                     </div>
@@ -61,20 +61,20 @@
                         </div>
                         <ul class="menu-items">
                             <li class="menu-item">
-                                <a href="#" class="menu-link">Керамическая</a>
+                                <a href="{{ route('tiles.index', ['type' => 'tile']) }}" class="menu-link">Керамическая</a>
                             </li>
                             <li class="menu-item">
-                                <a href="#" class="menu-link">Мозаика</a>
+                                <a href="{{ route('tiles.index', ['type' => 'mosaic']) }}" class="menu-link">Мозаика</a>
                             </li>
                             <li class="menu-item">
-                                <a href="#" class="menu-link">Плитка из камня</a>
+                                <a href="{{ route('tiles.index', ['type' => 'stone']) }}" class="menu-link">Плитка из камня</a>
                             </li>
                         </ul>
                     </div>
 
                     <div class="menu-list">
                         <div class="menu-list-title">
-                            <a href="#" class="menu-link">
+                            <a href="{{ route('catalog.plumbing') }}" class="menu-link">
                                 <h4>Сантехника</h4>
                             </a>
                         </div>
@@ -93,7 +93,7 @@
 
                     <div class="menu-list">
                         <div class="menu-list-title">
-                            <a href="#" class="menu-link">
+                            <a href="{{ route('catalog.floor') }}" class="menu-link">
                                 <h4>Напольные покрытия</h4>
                             </a>
                         </div>
@@ -112,16 +112,16 @@
 
                     <div class="menu-list">
                         <div class="menu-list-title">
-                            <a href="#" class="menu-link">
+                            <a href="{{ route('catalog.allPaints') }}" class="menu-link">
                                 <h4>Лакокрасочные материалы</h4>
                             </a>
                         </div>
                         <ul class="menu-items">
                             <li class="menu-item">
-                                <a href="{{ route('paint.index') }}" class="menu-link">Краски</a>
+                                <a href="{{ route('paint.index', ['type' => 'dye']) }}" class="menu-link">Краски</a>
                             </li>
                             <li class="menu-item">
-                                <a href="{{ route('paint.index') }}" class="menu-link">Эмали</a>
+                                <a href="{{ route('paint.index', ['type' => 'enamel']) }}" class="menu-link">Эмали</a>
                             </li>
                             <li class="menu-item">
                                 <a href="{{ route('varnishes.index') }}" class="menu-link">Лаки</a>

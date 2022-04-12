@@ -281,7 +281,7 @@ footer {
 }
 
 select.form-control {
-    width: 50px;
+    min-width: 50px;
 }
 
 .cart-item-image {

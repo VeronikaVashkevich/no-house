@@ -10,12 +10,14 @@ class PaintController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param null $type
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index()
+    public function index($type = null)
     {
         return view('paint.paints', [
             'paints' => Paint::all(),
+            'type' => $type,
         ]);
     }
 

@@ -11,10 +11,31 @@ class TilesController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param null $type
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index()
+    public function index($type = null)
     {
+        if (!empty($type)) {
+            switch ($type) {
+                case 'stone' :
+                    return view('tiles.tiles', [
+                        'tiles' => Tiles::query()->where('type', '=', 'плитка из камня')->get(),
+                    ]);
+                    break;
+                case 'tile' :
+                    return view('tiles.tiles', [
+                        'tiles' => Tiles::query()->where('type', '=', 'плитка')->get(),
+                    ]);
+                    break;
+                case 'mosaic' :
+                    return view('tiles.tiles', [
+                        'tiles' => Tiles::query()->where('type', '=', 'мозаика')->get(),
+                    ]);
+                    break;
+            }
+        }
+
         return view('tiles.tiles', [
             'tiles' => Tiles::all(),
         ]);
@@ -40,7 +61,7 @@ class TilesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
@@ -70,7 +91,7 @@ class TilesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tiles  $tile
+     * @param \App\Models\Tiles $tile
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Tiles $tile)
@@ -83,7 +104,7 @@ class TilesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Tiles  $tile
+     * @param \App\Models\Tiles $tile
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Tiles $tile)
@@ -96,8 +117,8 @@ class TilesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tiles  $tile
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Tiles $tile
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, Tiles $tile)
@@ -127,7 +148,7 @@ class TilesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tiles  $tile
+     * @param \App\Models\Tiles $tile
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy(Tiles $tile)
