@@ -14,6 +14,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/media.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -36,16 +37,13 @@
                         </div>
                         <div class="authentication">
                             @role('admin')
-                            <a href="{{ route('dashboard') }}">Панель управления</a>
-                            &nbsp/&nbsp
+                            <a href="{{ route('dashboard') }}">Панель управления &nbsp/&nbsp</a>
                             @endrole
                             @auth
-                                <a href="{{ route('home') }}">Личный кабинет</a>
-                                &nbsp/&nbsp
+                                <a href="{{ route('home') }}">Личный кабинет &nbsp/&nbsp</a>
                                 <a href="{{ route('logout') }}">Выйти</a>
                             @else
-                                <a href="{{ route('login') }}">Вход</a>
-                                &nbsp/&nbsp
+                                <a href="{{ route('login') }}">Вход &nbsp/&nbsp </a>
                                 <a href="{{ route('register') }}">Регистрация</a>
                             @endauth
                         </div>
@@ -65,7 +63,7 @@
                             <a href="#" class="nav-link">Доставка и оплата</a>
                             <a href="{{ route('reviews.index') }}" class="nav-link">Отзывы</a>
                         </div>
-                        <div class="cart">
+                        <div class="cart-link-block">
                             <a href="{{ route('cart') }}" class="cart-link">Корзина</a>
                         </div>
                     </div>

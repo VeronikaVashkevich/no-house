@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Filters\ProductFilter;
 use App\Models\Bath;
+use App\Models\Door;
 use App\Models\Laminate;
 use App\Models\Linoleum;
 use App\Models\Mixer;
@@ -22,7 +23,16 @@ class IndexController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $recommendations = array();
+
+        $recommendations[] = Door::query()->orderBy('id', 'desc')->first();
+        $recommendations[] = Wallpaper::query()->orderBy('id', 'desc')->first();
+        $recommendations[] = Laminate::query()->orderBy('id', 'desc')->first();
+        $recommendations[] = Linoleum::query()->orderBy('id', 'desc')->first();
+
+        return view('index', [
+            'recommendations' => $recommendations,
+        ]);
     }
 
     public function catalog() {

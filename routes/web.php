@@ -26,7 +26,7 @@ Route::get('/catalog', [IndexController::class, 'catalog'])->name('catalog');
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 Route::post('/review/store', [ReviewController::class, 'store'])->name('reviews.store');
 
-//Route::get('/product', [IndexController::class, 'product'])->name('product');
+Route::get('/product', [IndexController::class, 'product'])->name('product');
 //Route::get('/products', [IndexController::class, 'products'])->name('products');
 
 Route::get('/interior-decoration', [IndexController::class, 'interiorDecoration'])->name('catalog.interiorDecoration');
