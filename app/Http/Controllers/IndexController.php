@@ -29,6 +29,7 @@ class IndexController extends Controller
         $recommendations[] = Wallpaper::query()->orderBy('id', 'desc')->first();
         $recommendations[] = Laminate::query()->orderBy('id', 'desc')->first();
         $recommendations[] = Linoleum::query()->orderBy('id', 'desc')->first();
+        $recommendations[] = PvcPanel::query()->orderBy('id', 'desc')->first();
 
         return view('index', [
             'recommendations' => $recommendations,
