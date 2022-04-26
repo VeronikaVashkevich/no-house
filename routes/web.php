@@ -53,11 +53,11 @@ Route::get('/pvc-panels', [PvcPanelController::class, 'index'])->name('pvcPanels
 Route::get('/pvc-panels/{pvcPanel}', [PvcPanelController::class, 'show'])->name('pvcPanels.show');
 
 //doors routes
-Route::get('/doors/{type?}', [DoorController::class, 'index'])->name('doors.index');
+Route::get('/doors/type/{type?}', [DoorController::class, 'index'])->name('doors.index');
 Route::get('/doors/{door}', [DoorController::class, 'show'])->name('doors.show');
 
 //tiles routes
-Route::get('/tiles/{type?}', [TilesController::class, 'index'])->name('tiles.index');
+Route::get('/tiles/type/{type?}', [TilesController::class, 'index'])->name('tiles.index');
 Route::get('/tiles/{tile}', [TilesController::class, 'show'])->name('tiles.show');
 
 //kitchen sinks routes
@@ -85,7 +85,7 @@ Route::get('/parquet', [ParquetController::class, 'index'])->name('parquet.index
 Route::get('/parquet/{parquet}', [ParquetController::class, 'show'])->name('parquet.show');
 
 //paint routes
-Route::get('/paint/{type?}', [PaintController::class, 'index'])->name('paint.index');
+Route::get('/paint/type/{type?}', [PaintController::class, 'index'])->name('paint.index');
 Route::get('/paint/{paint}', [PaintController::class, 'show'])->name('paint.show');
 
 //varnishes routes
@@ -98,9 +98,14 @@ Route::group(['middleware' => ['role:admin']], function () {
 
     //wallpapers
     Route::get('/dashboard/wallpapers', [WallpaperController::class, 'dashboard'])->name('wallpapersDashboard');
-    Route::resource('wallpapers', WallpaperController::class)->except([
-        'index', 'show'
-    ]);
+//    Route::resource('wallpapers', WallpaperController::class)->except([
+//        'index', 'show'
+//    ]);
+    Route::get('/create/wallpaper', [WallpaperController::class, 'create'])->name('wallpapers.create');
+    Route::post('/store/wallpaper', [WallpaperController::class, 'store'])->name('wallpapers.store');
+    Route::get('/edit/wallpaper/{wallpaper}', [WallpaperController::class, 'edit'])->name('wallpapers.edit');
+    Route::put('/update/wallpaper/{wallpaper}', [WallpaperController::class, 'update'])->name('wallpapers.update');
+    Route::delete('/destroy/wallpaper/{wallpaper}', [WallpaperController::class, 'destroy'])->name('wallpapers.destroy');
 
     //pvc panels
     Route::get('/dashboard/pvc-panels', [PvcPanelController::class, 'dashboard'])->name('pvsPanelsDashboard');

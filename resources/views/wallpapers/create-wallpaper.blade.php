@@ -107,7 +107,8 @@
 
                     <div class="form-group">
                         <label for="is_3d" class="form-label">
-                            <input type="checkbox" name="is_3d" id="is_3d"> 3D
+                            <input type="checkbox" name="is_3d" id="is_3d"
+                                   @if(!empty($wallpaper->is_3d) && $wallpaper->is_3d == 1) checked @endif> 3D
 
                             @error('is_3d')
                             <span class="invalid-feedback" role="alert">
@@ -120,7 +121,7 @@
                     <div class="form-group">
                         <label for="is_wet" class="form-label">
                             <input type="checkbox" name="is_wet" id="is_wet"
-                                   @if($wallpaper->is_wet == 1) checked @endif> Влажные
+                                   @if(!empty($wallpaper->is_wet) && $wallpaper->is_wet == 1) checked @endif> Влажные
                             @error('is_wet')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

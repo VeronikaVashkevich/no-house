@@ -23,7 +23,7 @@
                                     </div>
                                     <div class="good-price">{{ $paint->price }} BYN</div>
                                     <div class="good-name">
-                                        <a href="{{ route('paint.show', $paint) }}">{{ $paint->name }}</a>
+                                        <a href="{{ route('paint.show', ['paint' => $paint]) }}">{{ $paint->name }}</a>
                                     </div>
                                     <a href="{{ route('addToCart', ['className' => 'paint', 'id' => $paint->id]) }}">
                                         <input type="button" value="В корзину" class="btn btn-primary">
