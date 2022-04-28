@@ -76,7 +76,9 @@
                             <h5>Адрес доставки</h5>
                         </div>
                         <div class="delivery-fields">
-                            <form action="">
+                            <form action="{{ route('orders.store') }}" method="post">
+                                @method('post')
+                                @csrf
                                 <div class="form-group">
                                     <label for="city">
                                         <input type="text" id="city" placeholder="Город" name="city"
@@ -107,7 +109,11 @@
                                                class="form-control">
                                     </label>
                                 </div>
-
+{{--                                <input type="hidden" name="cart" value="{{ $cart }}">--}}
+                                @foreach($cart as $good)
+                                    <input type="hidden" name="cart[]" value="{{ $good }}">
+                                @endforeach
+                                <input type="hidden" name="totalSum" value="{{ $total }}">
                                 <button class="btn btn-primary" @if(count($cart) == 0) disabled @endif type="submit">Оформить доставку</button>
                             </form>
                             <div class="delivery-pay">

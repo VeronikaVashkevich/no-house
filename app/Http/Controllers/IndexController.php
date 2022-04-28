@@ -101,12 +101,13 @@ class IndexController extends Controller
         $sessionId = Session::getId();
 
         \Cart::session($sessionId)->add([
-            'id' => $good->name,
+            'id' => $good->routeName . '_' . $good->id,
             'name' => $good->name,
             'price' => $good->price,
             'quantity' => 1,
             'attributes' => [
                 'image' => $good->image,
+                'routeName' => $good->routeName,
             ],
         ]);
 

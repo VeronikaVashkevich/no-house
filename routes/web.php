@@ -8,6 +8,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LaminateController;
 use App\Http\Controllers\LinoleumController;
 use App\Http\Controllers\MixerController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ParquetController;
 use App\Http\Controllers\PvcPanelController;
 use App\Http\Controllers\ReviewController;
@@ -91,6 +92,11 @@ Route::get('/paint/{paint}', [PaintController::class, 'show'])->name('paint.show
 //varnishes routes
 Route::get('/varnishes', [VarnishController::class, 'index'])->name('varnishes.index');
 Route::get('/varnishes/{varnish}', [VarnishController::class, 'show'])->name('varnishes.show');
+
+//orders routes
+Route::group(['middleware' => 'auth'], function () {
+    Route::match(['post', 'get'], '/order/make-order', [OrderController::class, 'store'])->name('orders.store');
+});
 
 // dashboard routes
 Route::group(['middleware' => ['role:admin']], function () {

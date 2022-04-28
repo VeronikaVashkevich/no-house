@@ -14,7 +14,8 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
         "spatie/laravel-permission": "^5.5",
-        "darryldecode/cart": "^4.2"
+        "darryldecode/cart": "^4.2",
+        "ext-json": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

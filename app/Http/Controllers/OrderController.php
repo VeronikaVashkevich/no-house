@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -31,11 +33,41 @@ class OrderController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
-        //
+        $cart = !empty($request->cart) ? $request->cart : array() ;
+
+        if (!$cart) {
+            return redirect('/cart');
+        }
+
+        $order = new Order;
+
+        $order->totalSum = $request->totalSum;
+        $order->user_id = Auth::id();
+        $order->number = mt_rand();
+
+        $order->save();
+
+        // по очереди добавляем товары в сводную таблицу order_good
+        foreach ($cart as $good) {
+            $good = json_decode($good);
+            // получаем имя роута (класса) товара и id товара
+            $routeName = explode('_', $good->id)[0];
+            $good_id = explode('_', $good->id)[1];
+            // количество товара
+            $qty = $good->quantity;
+
+            DB::table('order_good')->insert([
+                'order_id' => $order->id,
+                'route_name' => $routeName,
+                'id_value' => $good_id,
+                'good_qty' => $qty,
+            ]);
+
+        }
     }
 
     /**
