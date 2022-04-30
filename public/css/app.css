@@ -867,3 +867,7 @@ textarea.form-control {
     text-align: left;
     margin-top: 22px;
 }
+
+#order {
+    padding-bottom: 60px;
+}

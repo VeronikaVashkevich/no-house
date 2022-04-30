@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BathController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DoorController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LaminateController;
 use App\Http\Controllers\LinoleumController;
@@ -43,7 +44,7 @@ Route::get('/delete-from-cart', [IndexController::class, 'deleteFormCart'])->nam
 
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //wallpapers
 Route::get('/wallpapers/{is_wet?}', [WallpaperController::class, 'index'])->name('wallpapers.index');
@@ -93,9 +94,10 @@ Route::get('/paint/{paint}', [PaintController::class, 'show'])->name('paint.show
 Route::get('/varnishes', [VarnishController::class, 'index'])->name('varnishes.index');
 Route::get('/varnishes/{varnish}', [VarnishController::class, 'show'])->name('varnishes.show');
 
-//orders routes
+//orders routes only for authorized users
 Route::group(['middleware' => 'auth'], function () {
     Route::match(['post', 'get'], '/order/make-order', [OrderController::class, 'store'])->name('orders.store');
+    Route::get('/my-order/{order}', [OrderController::class, 'show'])->name('orders.show');
 });
 
 // dashboard routes

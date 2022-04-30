@@ -21,6 +21,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Session;
 
 class Controller extends BaseController
 {
@@ -37,6 +38,21 @@ class Controller extends BaseController
         'tile' => Tiles::class,
         'varnish' => Varnish::class,
         'wallpaper' => Wallpaper::class,
+    ];
+
+    const ROUTES = [
+        'baths' => Bath::class,
+        'doors' => Door::class,
+        'laminate' => Laminate::class,
+        'linoleum' => Linoleum::class,
+        'mixers' => Mixer::class,
+        'paint' => Paint::class,
+        'parquet' => Parquet::class,
+        'pvcPanels' => PvcPanel::class,
+        'sinks' => Sink::class,
+        'tiles' => Tiles::class,
+        'varnishes' => Varnish::class,
+        'wallpapers' => Wallpaper::class,
     ];
 
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -60,8 +76,20 @@ class Controller extends BaseController
         return $class::query()->where(['id' => $id])->first();
     }
 
+    public function getGoodByRouteName($routeName, $id)
+    {
+        $class = $this::ROUTES[$routeName];
+
+        return $class::query()->where(['id' => $id])->first();
+    }
+
     public function getParentClass($className)
     {
         return $this::CLASSES[$className];
+    }
+
+    public function clearCart() {
+        \Cart::clear();
+        \Cart::session($sessionId = Session::getId())->clear();
     }
 }

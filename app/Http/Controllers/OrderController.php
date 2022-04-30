@@ -66,19 +66,36 @@ class OrderController extends Controller
                 'id_value' => $good_id,
                 'good_qty' => $qty,
             ]);
-
         }
+
+        // чистим корзину
+        $this->clearCart();
+
+        return redirect('/home');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Order $order)
     {
-        //
+        $goodsRaw = DB::table('order_good')->where('order_id', '=', $order->id)->get();
+
+//        echo "<pre/>"; var_dump($goods); exit;
+
+        $goods = [];
+        foreach ($goodsRaw as $goodRaw) {
+            $goods[] = $this->getGoodByRouteName($goodRaw->route_name, $goodRaw->id_value);
+        }
+
+        return view('order', [
+            'order' => $order,
+            'goods' => $goods,
+            'goodsRaw' => $goodsRaw,
+        ]);
     }
 
     /**
