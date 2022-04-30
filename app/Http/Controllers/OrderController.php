@@ -48,6 +48,11 @@ class OrderController extends Controller
         $order->totalSum = $request->totalSum;
         $order->user_id = Auth::id();
         $order->number = mt_rand();
+        $order->street = $request->street;
+        $order->city = $request->city;
+        $order->house = $request->house;
+        $order->front_door = $request->frontDoor;
+        $order->apartment = $request->apartment;
 
         $order->save();
 

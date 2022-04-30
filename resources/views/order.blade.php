@@ -36,6 +36,28 @@
                     @endif
                 </div>
             </div>
+            <div class="delivery-info">
+                <h3>Информация о доставке</h3>
+                <div class="panel">
+                    <ul>
+                        <li class="panel-el">
+                            Город: {{ $order->city }}
+                        </li>
+                        <li class="panel-el">
+                            Улица: {{ $order->street }}
+                        </li>
+                        <li class="panel-el">
+                            Дом(корпус): {{ $order->house }}
+                        </li>
+                        <li class="panel-el">
+                            Подъезд: {{ $order->front_door }}
+                        </li>
+                        <li class="panel-el">
+                            Квартира: {{ $order->apartment }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </section>
     </div>
 @endsection

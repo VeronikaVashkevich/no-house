@@ -104,8 +104,8 @@
                                     </label>
                                 </div>
                                 <div class="form-group">
-                                    <label for="flat">
-                                        <input type="text" id="flat" placeholder="Квартира" name="flat"
+                                    <label for="apartment">
+                                        <input type="text" id="apartment" placeholder="Квартира" name="apartment"
                                                class="form-control">
                                     </label>
                                 </div>
