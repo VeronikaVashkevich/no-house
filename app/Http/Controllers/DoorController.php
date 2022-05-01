@@ -58,6 +58,19 @@ class DoorController extends Controller
     {
         $door = new Door;
 
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:4000|string',
+            'price' => 'required|min:0.01|numeric',
+            'width' => 'required|min:1|numeric',
+            'height' => 'required|min:1|numeric',
+            'type' => 'required|max:100|string',
+            'color' => 'required|max:100|string',
+            'construction' => 'required|max:100|string',
+            'doorTrim' => 'required|max:100|string',
+            'image' => 'required|max:2048|image'
+        ]);
+
         $door->name = $request->name;
         $door->type = $request->type;
         $door->doorTrim = $request->doorTrim;
@@ -110,6 +123,19 @@ class DoorController extends Controller
      */
     public function update(Request $request, Door $door)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:4000|string',
+            'price' => 'required|min:0.01|numeric',
+            'width' => 'required|min:1|numeric',
+            'height' => 'required|min:1|numeric',
+            'type' => 'required|max:100|string',
+            'color' => 'required|max:100|string',
+            'construction' => 'required|max:100|string',
+            'doorTrim' => 'required|max:100|string',
+            'image' => 'max:2048|image'
+        ]);
+
         $door->name = $request->name;
         $door->type = $request->type;
         $door->doorTrim = $request->doorTrim;

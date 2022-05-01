@@ -66,6 +66,21 @@ class TilesController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|max:100|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'width' => 'required|min:1|numeric',
+            'height' => 'required|min:1|numeric',
+            'depth' => 'required|min:1|numeric',
+            'purpose' => 'required|max:100|string',
+            'type' => 'required|max:100|string',
+            'form' => 'required|max:100|string',
+            'wearClass' => 'required|max:50|string',
+            'color' => 'required|max:100|string',
+            'image' => 'required|max:2048|image'
+        ]);
+
         $tile = new Tiles;
 
         $tile->name = $request->name;
@@ -123,6 +138,21 @@ class TilesController extends Controller
      */
     public function update(Request $request, Tiles $tile)
     {
+        $request->validate([
+            'name' => 'required|max:100|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'width' => 'required|min:1|numeric',
+            'height' => 'required|min:1|numeric',
+            'depth' => 'required|min:1|numeric',
+            'purpose' => 'required|max:100|string',
+            'type' => 'required|max:100|string',
+            'form' => 'required|max:100|string',
+            'wearClass' => 'required|max:50|string',
+            'color' => 'required|max:100|string',
+            'image' => 'max:2048|image'
+        ]);
+
         $tile->name = $request->name;
         $tile->type = $request->type;
         $tile->price = $request->price;

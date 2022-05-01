@@ -45,6 +45,17 @@ class PvcPanelController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'color' => 'required|max:100|string',
+            'mounting' => 'required|max:100|string',
+            'texture' => 'required|max:100|string',
+            'type' => 'required|max:100|string',
+            'image' => 'required|max:2048|image'
+        ]);
+
         $pvcPanel = new PvcPanel;
 
         $pvcPanel->name = $request->name;
@@ -96,6 +107,17 @@ class PvcPanelController extends Controller
      */
     public function update(Request $request, PvcPanel $pvcPanel)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'color' => 'required|max:100|string',
+            'mounting' => 'required|max:100|string',
+            'texture' => 'required|max:100|string',
+            'type' => 'required|max:100|string',
+            'image' => 'max:2048|image'
+        ]);
+
         $pvcPanel->name = $request->name;
         $pvcPanel->type = $request->type;
         $pvcPanel->texture = $request->texture;

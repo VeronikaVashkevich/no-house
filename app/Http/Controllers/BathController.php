@@ -44,6 +44,21 @@ class BathController extends Controller
     {
         $bath = new Bath;
 
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'maxLoad' => 'required|min:1|numeric',
+            'width' => 'required|min:1|numeric',
+            'height' => 'required|min:1|numeric',
+            'depth' => 'required|min:1|numeric',
+            'material' => 'required|max:100',
+            'form' => 'required|max:400|string',
+            'montageType' => 'required|max:400|string',
+            'color' => 'required|max:400|string',
+            'image' => 'required|max:2048|image'
+        ]);
+
         $bath->name = $request->name;
         $bath->description = $request->description;
         $bath->price = $request->price;
@@ -91,6 +106,21 @@ class BathController extends Controller
      */
     public function update(Request $request, Bath $bath)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'maxLoad' => 'required|min:1|numeric',
+            'width' => 'required|min:1|numeric',
+            'height' => 'required|min:1|numeric',
+            'depth' => 'required|min:1|numeric',
+            'material' => 'required|max:100',
+            'form' => 'required|max:400|string',
+            'montageType' => 'required|max:400|string',
+            'color' => 'required|max:400|string',
+            'image' => 'max:2048|image'
+        ]);
+
         $bath->name = $request->name;
         $bath->description = $request->description;
         $bath->price = $request->price;

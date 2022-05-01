@@ -43,6 +43,17 @@ class MixerController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'length' => 'required|min:1|numeric',
+            'material' => 'required|max:200|string',
+            'color' => 'required|max:200|string',
+            'mechanism' => 'required|max:200|string',
+            'image' => 'required|max:2048|image'
+        ]);
+
         $mixer = new Mixer;
 
         $mixer->name = $request->name;
@@ -94,6 +105,17 @@ class MixerController extends Controller
      */
     public function update(Request $request, Mixer $mixer)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'length' => 'required|min:1|numeric',
+            'material' => 'required|max:200|string',
+            'color' => 'required|max:200|string',
+            'mechanism' => 'required|max:200|string',
+            'image' => 'max:2048|image'
+        ]);
+
         $mixer->name = $request->name;
         $mixer->purpose = $request->purpose;
         $mixer->description = $request->description;

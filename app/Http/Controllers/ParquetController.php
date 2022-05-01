@@ -44,6 +44,20 @@ class ParquetController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'width' => 'required|min:1|numeric',
+            'length' => 'required|min:1|numeric',
+            'thickness' => 'required|min:1|numeric',
+            'color' => 'required|max:200|string',
+            'covering' => 'required|max:200|string',
+            'tree' => 'required|max:200|string',
+            'type' => 'required|max:200|string',
+            'image' => 'required|max:2048|image'
+        ]);
+
         $parquet = new Parquet;
 
         $parquet->name = $request->name;
@@ -97,6 +111,20 @@ class ParquetController extends Controller
      */
     public function update(Request $request, Parquet $parquet)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'width' => 'required|min:1|numeric',
+            'length' => 'required|min:1|numeric',
+            'thickness' => 'required|min:1|numeric',
+            'color' => 'required|max:200|string',
+            'covering' => 'required|max:200|string',
+            'tree' => 'required|max:200|string',
+            'type' => 'required|max:200|string',
+            'image' => 'max:2048|image'
+        ]);
+
         $parquet->name = $request->name;
         $parquet->price = $request->price;
         $parquet->description = $request->description;

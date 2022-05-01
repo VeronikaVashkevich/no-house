@@ -43,6 +43,19 @@ class PaintController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'weight' => 'required|min:0.01|numeric',
+            'time' => 'required|min:1|numeric',
+            'material' => 'required|max:400|string',
+            'color' => 'required|max:100|string',
+            'type' => 'required|max:50|string',
+            'appointment' => 'required|max:400|string',
+            'image' => 'required|max:2048|image'
+        ]);
+
         $paint = new Paint;
 
         $paint->name = $request->name;
@@ -92,6 +105,19 @@ class PaintController extends Controller
      */
     public function update(Request $request, Paint $paint)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'weight' => 'required|min:0.01|numeric',
+            'time' => 'required|min:1|numeric',
+            'material' => 'required|max:400|string',
+            'color' => 'required|max:100|string',
+            'type' => 'required|max:50|string',
+            'appointment' => 'required|max:400|string',
+            'image' => 'max:2048|image'
+        ]);
+
         $paint->name = $request->name;
         $paint->description = $request->description;
         $paint->price = $request->price;

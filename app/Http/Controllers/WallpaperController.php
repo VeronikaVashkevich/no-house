@@ -53,6 +53,17 @@ class WallpaperController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'color' => 'required|max:100|string',
+            'basis' => 'required|max:100|string',
+            'texture' => 'required|max:100|string',
+            'type' => 'required|max:100|string',
+            'image' => 'required|max:2048|image'
+        ]);
+
         $wallpaper = new Wallpaper;
 
         $wallpaper->name = $request->name;
@@ -106,6 +117,17 @@ class WallpaperController extends Controller
      */
     public function update(Request $request, Wallpaper $wallpaper)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'color' => 'required|max:100|string',
+            'basis' => 'required|max:100|string',
+            'texture' => 'required|max:100|string',
+            'type' => 'required|max:100|string',
+            'image' => 'max:2048|image'
+        ]);
+
         $wallpaper->name = $request->name;
         $wallpaper->type = $request->type;
         $wallpaper->texture = $request->texture;

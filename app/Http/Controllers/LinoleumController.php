@@ -39,6 +39,17 @@ class LinoleumController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'length' => 'required|min:1|numeric',
+            'appointment' => 'required|max:200|string',
+            'color' => 'required|max:200|string',
+            'base' => 'required|max:200|string',
+            'image' => 'required|max:2048|image'
+        ]);
+
         $linoleum = new Linoleum;
 
         $linoleum->name = $request->name;
@@ -91,6 +102,17 @@ class LinoleumController extends Controller
      */
     public function update(Request $request, Linoleum $linoleum)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'length' => 'required|min:1|numeric',
+            'appointment' => 'required|max:200|string',
+            'color' => 'required|max:200|string',
+            'base' => 'required|max:200|string',
+            'image' => 'max:2048|image'
+        ]);
+
         $linoleum->name = $request->name;
         $linoleum->description = $request->description;
         $linoleum->price = $request->price;

@@ -44,6 +44,21 @@ class LaminateController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'width' => 'required|min:1|numeric',
+            'height' => 'required|min:1|numeric',
+            'length' => 'required|min:1|numeric',
+            'loadClass' => 'required|max:200|string',
+            'color' => 'required|max:200|string',
+            'lockClass' => 'required|max:200|string',
+            'corkLayer' => 'required|max:200|string',
+            'abrasionResistanceClass' => 'required|max:200|string',
+            'image' => 'required|max:2048|image'
+        ]);
+
         $laminate = new Laminate;
 
         $laminate->name = $request->name;
@@ -100,6 +115,21 @@ class LaminateController extends Controller
      */
     public function update(Request $request, Laminate $laminate)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'width' => 'required|min:1|numeric',
+            'height' => 'required|min:1|numeric',
+            'length' => 'required|min:1|numeric',
+            'loadClass' => 'required|max:200|string',
+            'color' => 'required|max:200|string',
+            'lockClass' => 'required|max:200|string',
+            'corkLayer' => 'required|max:200|string',
+            'abrasionResistanceClass' => 'required|max:200|string',
+            'image' => 'max:2048|image'
+        ]);
+
         $laminate->name = $request->name;
         $laminate->description = $request->description;
         $laminate->price = $request->price;

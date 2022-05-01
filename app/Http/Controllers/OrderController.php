@@ -37,6 +37,14 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'street' => 'required|max:150|string',
+            'city' => 'required|max:150|string',
+            'house' => 'required|min:1|numeric',
+            'frontDoor' => 'required|min:1|numeric',
+            'apartment' => 'required|min:1|numeric',
+        ]);
+
         $cart = !empty($request->cart) ? $request->cart : array() ;
 
         if (!$cart) {

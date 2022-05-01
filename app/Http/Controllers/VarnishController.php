@@ -44,6 +44,19 @@ class VarnishController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'weight' => 'required|min:0.01|numeric',
+            'time' => 'required|min:1|numeric',
+            'material' => 'required|max:400|string',
+            'basis' => 'required|max:100|string',
+            'color' => 'required|max:100|string',
+            'appointment' => 'required|max:400|string',
+            'image' => 'required|max:2048|image'
+        ]);
+
         $varnish = new Varnish;
 
         $varnish->name = $request->name;
@@ -97,6 +110,19 @@ class VarnishController extends Controller
      */
     public function update(Request $request, Varnish $varnish)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'weight' => 'required|min:0.01|numeric',
+            'time' => 'required|min:1|numeric',
+            'material' => 'required|max:400|string',
+            'basis' => 'required|max:100|string',
+            'color' => 'required|max:100|string',
+            'appointment' => 'required|max:400|string',
+            'image' => 'max:2048|image'
+        ]);
+
         $varnish->name = $request->name;
         $varnish->price = $request->price;
         $varnish->description = $request->description;

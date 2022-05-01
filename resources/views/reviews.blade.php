@@ -32,7 +32,7 @@
 
                                     <input id="username" type="text"
                                            class="form-control @error('username') is-invalid @enderror"
-                                           name="username" placeholder="Ваше имя"
+                                           name="username" placeholder="Ваше имя" maxlength="500"
                                            required autofocus>
 
                                     @error('username')
@@ -44,8 +44,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="text" class="form-label">
-                                    <textarea name="text" id="text" class="form-control"
-                                              placeholder="Текст отзыка"></textarea>
+                                    <textarea name="text" id="text" class="form-control" required
+                                              placeholder="Текст отзыка" maxlength="1500"></textarea>
                                     @error('text')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

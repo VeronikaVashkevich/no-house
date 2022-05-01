@@ -45,6 +45,19 @@ class SinkController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'bowls' => 'required|min:1|numeric',
+            'material' => 'required|max:200|string',
+            'form' => 'required|max:100|string',
+            'montage' => 'required|max:200|string',
+            'type' => 'required|max:400|string',
+            'color' => 'required|max:200|string',
+            'image' => 'required|max:2048|image'
+        ]);
+
         $sink = new Sink;
 
         $sink->name = $request->name;
@@ -100,6 +113,19 @@ class SinkController extends Controller
      */
     public function update(Request $request, Sink $sink)
     {
+        $request->validate([
+            'name' => 'required|max:400|string',
+            'description' => 'required|max:2500|string',
+            'price' => 'required|min:0.01|numeric',
+            'bowls' => 'required|min:1|numeric',
+            'material' => 'required|max:200|string',
+            'form' => 'required|max:100|string',
+            'montage' => 'required|max:200|string',
+            'type' => 'required|max:400|string',
+            'color' => 'required|max:200|string',
+            'image' => 'max:2048|image'
+        ]);
+
         $sink->name = $request->name;
         $sink->type = $request->type;
         $sink->price = $request->price;
