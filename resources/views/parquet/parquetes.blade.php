@@ -24,7 +24,7 @@
                                 <div class="good-name">
                                     <a href="{{ route('parquet.show', $par) }}">{{ $par->name }}</a>
                                 </div>
-                                <a href="#">
+                                <a href="{{ route('addToCart', ['className' => 'parquet', 'id' => $par->id]) }}">
                                     <input type="button" value="В корзину" class="btn btn-primary">
                                 </a>
                             </div>
