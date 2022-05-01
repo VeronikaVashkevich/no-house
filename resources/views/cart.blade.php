@@ -114,7 +114,7 @@
                                     <input type="hidden" name="cart[]" value="{{ $good }}">
                                 @endforeach
                                 <input type="hidden" name="totalSum" value="{{ $total }}">
-                                <button class="btn btn-primary" @if(count($cart) == 0) disabled @endif type="submit">Оформить доставку</button>
+                                <button class="btn btn-primary" @if(count($cart) == 0 || !Auth::user()) disabled @endif type="submit">Оформить доставку</button>
                             </form>
                             <div class="delivery-pay">
                                 Оплата наличными или картой при получении
