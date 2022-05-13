@@ -35,7 +35,7 @@
                                 <div class="good-name">
                                     <a href="{{ route($recommendation->routeName . '.show', $recommendation->id) }}">{{ $recommendation->name }}</a>
                                 </div>
-                                <a href="#">
+                                <a href="{{ route('addToCart', ['routeName' => $recommendation->routeName, 'id' => $recommendation->id]) }}">
                                     <input type="button" value="В корзину" class="btn btn-primary">
                                 </a>
                             </div>

@@ -96,7 +96,11 @@ class IndexController extends Controller
 
     public function addCart(Request $request)
     {
-        $good = $this->getGoodByClass($request->className, $request->id);
+        if (!isset($request->className)) {
+            $good = $this->getGoodByRouteName($request->routeName, $request->id);
+        } else {
+            $good = $this->getGoodByClass($request->className, $request->id);
+        }
 
         $sessionId = Session::getId();
 
