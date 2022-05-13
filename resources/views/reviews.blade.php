@@ -45,7 +45,7 @@
                             <div class="form-group">
                                 <label for="text" class="form-label">
                                     <textarea name="text" id="text" class="form-control" required
-                                              placeholder="Текст отзыка" maxlength="1500"></textarea>
+                                              placeholder="Текст отзыва" maxlength="1500"></textarea>
                                     @error('text')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

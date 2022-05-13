@@ -55,6 +55,9 @@
                         <li class="panel-el">
                             <a href="{{ route('reviewsDashboard') }}">Отзывы</a>
                         </li>
+                        <li class="panel-el">
+                            <a href="{{ route('ordersDashboard') }}">Заказы</a>
+                        </li>
                     </ul>
                 </div>
             </div>

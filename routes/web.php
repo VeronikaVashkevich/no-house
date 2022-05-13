@@ -97,7 +97,7 @@ Route::get('/varnishes/{varnish}', [VarnishController::class, 'show'])->name('va
 //orders routes only for authorized users
 Route::group(['middleware' => 'auth'], function () {
     Route::match(['post', 'get'], '/order/make-order', [OrderController::class, 'store'])->name('orders.store');
-    Route::get('/my-order/{order}', [OrderController::class, 'show'])->name('orders.show');
+    Route::get('/order/{order}', [OrderController::class, 'show'])->name('orders.show');
 });
 
 // dashboard routes
@@ -210,4 +210,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::put('/update/review/{review}', [ReviewController::class, 'update'])->name('reviews.update');
     Route::delete('/destroy/review/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 
+
+    //orders routes
+    Route::get('/dashboard/orders', [OrderController::class, 'dashboard'])->name('ordersDashboard');
 });

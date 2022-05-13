@@ -19,6 +19,13 @@ class OrderController extends Controller
         //
     }
 
+    public function dashboard()
+    {
+        return view('orders.ordersDashboard', [
+            'orders' => Order::all(),
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
