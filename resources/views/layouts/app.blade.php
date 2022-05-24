@@ -60,7 +60,7 @@
                                     Каталог
                                 </a>
                             </div>
-                            <a href="#" class="nav-link">Доставка и оплата</a>
+                            <a href="{{ route('deliveryInfo') }}" class="nav-link">Доставка и оплата</a>
                             <a href="{{ route('reviews.index') }}" class="nav-link">Отзывы</a>
                         </div>
                         <div class="cart-link-block">

@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/catalog', [IndexController::class, 'catalog'])->name('catalog');
+Route::get('/delivery-info', [IndexController::class, 'deliveryInfo'])->name('deliveryInfo');
 
 //reviews
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');

@@ -875,3 +875,16 @@ textarea.form-control {
 .delivery-info {
     margin-top: 40px;
 }
+
+.delivery-info-page {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 90px;
+}
+
+.pay-info {
+    text-indent: 20px;
+}

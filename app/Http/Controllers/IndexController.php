@@ -36,6 +36,11 @@ class IndexController extends Controller
         ]);
     }
 
+    public function deliveryInfo()
+    {
+        return view('delivery-info');
+    }
+
     public function catalog() {
         return view('catalog');
     }
